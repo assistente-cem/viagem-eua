@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Guia de Viagem - Califórnia 2026</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
@@ -29,6 +31,7 @@
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-sky-500 selection:text-white">
 
+    <!-- TOP FIXED HEADER -->
     <header class="sticky top-0 z-40 bg-slate-900 text-white px-4 py-3 shadow-md flex items-center justify-between">
         <div class="flex items-center gap-2">
             <i class="fa-solid fa-compass text-sky-400 text-lg animate-pulse"></i>
@@ -37,13 +40,16 @@
                 <span class="text-[10px] text-slate-400 font-medium">Agosto 2026</span>
             </div>
         </div>
+        <!-- MINI COUNTDOWN -->
         <div id="mini-countdown" class="bg-white/10 border border-white/10 px-2.5 py-1 rounded-lg text-[11px] font-bold text-sky-400">
             <span id="cd-days">00</span>d <span id="cd-hours">00</span>h
         </div>
     </header>
 
+    <!-- MAIN CONTENT CONTAINER -->
     <main class="px-4 py-4 max-w-md mx-auto">
 
+        <!-- TAB: ROTEIRO -->
         <section id="content-roteiro" class="tab-content space-y-4">
             <div class="flex items-center justify-between mb-2">
                 <h2 class="text-lg font-black text-slate-900">Cronograma Diário</h2>
@@ -53,123 +59,34 @@
                 </div>
             </div>
 
+            <!-- ACORDEÕES DO CRONOGRAMA DINÂMICO -->
             <div id="itinerary-list" class="space-y-3"></div>
         </section>
 
+        <!-- TAB: VOOS -->
         <section id="content-voos" class="tab-content space-y-4 hidden">
             <div class="flex items-center justify-between mb-1">
                 <h2 class="text-lg font-black text-slate-900">Voos & Passagens</h2>
+                <!-- Botão Ativador do Localizador -->
                 <button onclick="openBoardingPassModal()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-lg shadow-sm text-xs tracking-wider transition-all">
                     <i class="fas fa-search"></i> LOCALIZADOR
                 </button>
             </div>
+
+            <!-- SELEÇÃO DE PASSAGEIROS -->
+            <div class="bg-white p-3 rounded-xl border border-slate-200/60 shadow-2xs space-y-2">
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-wider"><i class="fa-solid fa-users mr-1"></i> Selecione o Passageiro:</p>
+                <div class="grid grid-cols-2 gap-1.5" id="passenger-buttons-container">
+                    <!-- Gerado dinamicamente via JS -->
+                </div>
+            </div>
             
-            <div class="space-y-3">
-                <div class="flex items-center gap-2">
-                    <span class="text-xs font-black uppercase tracking-wider text-sky-700 bg-sky-50 px-2 py-0.5 rounded">Trechos de Ida</span>
-                    <span class="text-[11px] text-slate-400 font-medium">Sexta, 07/08/2026</span>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-2xs border border-slate-200/60 p-4 relative overflow-hidden">
-                    <div class="absolute left-0 top-0 h-full w-1 bg-sky-600"></div>
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-black text-slate-800">Azul 4787</span>
-                        <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Duração: 3h 05min</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        <div>
-                            <p class="text-lg font-black text-slate-900">17:50h</p>
-                            <p class="text-xs font-bold text-slate-500">BEL</p>
-                            <p class="text-[9px] text-slate-400">Belém, BR</p>
-                        </div>
-                        <i class="fa-solid fa-plane text-slate-300 text-xs transform rotate-45"></i>
-                        <div class="text-right">
-                            <p class="text-lg font-black text-slate-900">20:55h</p>
-                            <p class="text-xs font-bold text-slate-500">CNF</p>
-                            <p class="text-[9px] text-slate-400">Belo Horizonte</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-2 px-4 text-[11px] font-bold text-slate-500">
-                    <i class="fa-solid fa-clock text-amber-500"></i>
-                    <span>Conexão em Belo Horizonte (CNF): 2h 35min <span class="font-normal text-slate-400">(Troca de aeronave)</span></span>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-2xs border border-slate-200/60 p-4 relative overflow-hidden">
-                    <div class="absolute left-0 top-0 h-full w-1 bg-sky-600"></div>
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-black text-slate-800">Azul 4110</span>
-                        <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Duração: 1h 05min</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        <div>
-                            <p class="text-lg font-black text-slate-900">23:30h <span class="text-[9px] font-normal text-slate-400 block">(07/Ago)</span></p>
-                            <p class="text-xs font-bold text-slate-500">CNF</p>
-                        </div>
-                        <i class="fa-solid fa-plane text-slate-300 text-xs transform rotate-45"></i>
-                        <div class="text-right">
-                            <p class="text-lg font-black text-slate-900">00:35h <span class="text-[9px] font-normal text-emerald-600 block">(08/Ago - Sáb)</span></p>
-                            <p class="text-xs font-bold text-slate-500">GIG</p>
-                            <p class="text-[9px] text-slate-400">Rio de Janeiro</p>
-                        </div>
-                    </div>
-                </div>
+            <!-- CONTAINER DINÂMICO DE INJEÇÃO DE TRECHOS DOS VOOS -->
+            <div id="passenger-flights-display" class="space-y-4">
+                <!-- Injetado dinamicamente baseado no passageiro ativo -->
             </div>
 
-            <div class="space-y-3 pt-2">
-                <div class="flex items-center gap-2">
-                    <span class="text-xs font-black uppercase tracking-wider text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">Trechos de Volta</span>
-                    <span class="text-[11px] text-slate-400 font-medium">Domingo, 23/08/2026</span>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-2xs border border-slate-200/60 p-4 relative overflow-hidden">
-                    <div class="absolute left-0 top-0 h-full w-1 bg-indigo-600"></div>
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-black text-slate-800">Azul 2898</span>
-                        <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Duração: 1h 10min</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        <div>
-                            <p class="text-lg font-black text-slate-900">10:05h</p>
-                            <p class="text-xs font-bold text-slate-500">SDU</p>
-                            <p class="text-[9px] text-slate-400">Rio de Janeiro</p>
-                        </div>
-                        <i class="fa-solid fa-plane text-slate-300 text-xs transform rotate-45"></i>
-                        <div class="text-right">
-                            <p class="text-lg font-black text-slate-900">11:15h</p>
-                            <p class="text-xs font-bold text-slate-500">VCP</p>
-                            <p class="text-[9px] text-slate-400">São Paulo</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex items-center gap-2 px-4 text-[11px] font-bold text-slate-500">
-                    <i class="fa-solid fa-clock text-amber-500"></i>
-                    <span>Conexão em Campinas (VCP): 1h 35min <span class="font-normal text-slate-400">(Troca de aeronave)</span></span>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-2xs border border-slate-200/60 p-4 relative overflow-hidden">
-                    <div class="absolute left-0 top-0 h-full w-1 bg-indigo-600"></div>
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-black text-slate-800">Azul 4070</span>
-                        <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Duração: 3h 25min</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        <div>
-                            <p class="text-lg font-black text-slate-900">12:50h</p>
-                            <p class="text-xs font-bold text-slate-500">VCP</p>
-                        </div>
-                        <i class="fa-solid fa-plane text-slate-300 text-xs transform rotate-45"></i>
-                        <div class="text-right">
-                            <p class="text-lg font-black text-slate-900">16:15h</p>
-                            <p class="text-xs font-bold text-slate-500">BEL</p>
-                            <p class="text-[9px] text-slate-400">Belém, BR</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <!-- INFOS FRÁGEIS DE BAGAGEM -->
             <div class="bg-amber-50 border border-amber-200 rounded-xl p-3.5 flex gap-2.5">
                 <i class="fa-solid fa-circle-exclamation text-amber-600 text-sm mt-0.5"></i>
                 <div class="text-xs">
@@ -179,26 +96,31 @@
             </div>
         </section>
 
+        <!-- TAB: HOTEL -->
         <section id="content-hotel" class="tab-content space-y-4 hidden">
             <h2 class="text-lg font-black text-slate-900 mb-1">Hospedagens Base</h2>
-            
             <div id="hotel-list" class="space-y-4"></div>
         </section>
 
+        <!-- TAB: EXPLORAR (ATRAÇÕES E COMPRAS) -->
         <section id="content-explorar" class="tab-content space-y-4 hidden">
             <h2 class="text-lg font-black text-slate-900 mb-1">Guia de Destino</h2>
             
+            <!-- CHIPS DE NAVEGAÇÃO INTERNA SUB-TAB -->
             <div class="flex gap-2 bg-slate-200/60 p-1 rounded-xl">
                 <button id="sub-atracoes" onclick="switchSubTab('atracoes')" class="flex-1 text-center font-black text-xs py-2.5 rounded-lg bg-white text-slate-900 shadow-2xs transition-all">Ponto Turístico / Parques</button>
                 <button id="sub-compras" onclick="switchSubTab('compras')" class="flex-1 text-center font-black text-xs py-2.5 rounded-lg text-slate-600 transition-all">Lojas & Outlets</button>
             </div>
 
+            <!-- CONTAINER ONDE O JAVASCRIPT INJETA OS CARDS -->
             <div id="explore-cards-container" class="space-y-3"></div>
         </section>
 
+        <!-- TAB: INFO -->
         <section id="content-info" class="tab-content space-y-4 hidden">
             <h2 class="text-lg font-black text-slate-900 mb-1">Informações Úteis</h2>
             
+            <!-- CONTATO DE EMERGÊNCIA DISCAGEM DIRETA -->
             <a href="tel:911" class="flex items-center justify-between bg-red-50 border border-red-200 p-4 rounded-xl shadow-xs text-left active:scale-[0.99] transition-transform">
                 <div>
                     <p class="text-[10px] font-bold text-red-700 uppercase tracking-wider">Emergência Internacional</p>
@@ -210,11 +132,10 @@
                 </div>
             </a>
 
+            <!-- DADOS CADASTRAIS GERAIS -->
             <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-2xs space-y-2.5 text-xs">
-                <p class="font-black text-slate-900 uppercase tracking-wider text-[10px] border-b border-slate-100 pb-1.5">Dados do Passageiro Titular</p>
-                <p class="flex justify-between"><span class="text-slate-400">Nome:</span> <span class="font-bold text-slate-800">José Fábio Carneiro da Silva</span></p>
-                <p class="flex justify-between"><span class="text-slate-400">Identidade (CPF):</span> <span class="font-mono text-slate-800">043.052.427-70</span></p>
-                <p class="flex justify-between"><span class="text-slate-400">Reserva Geral Decolar:</span> <span class="font-mono font-bold text-slate-800">157542350500</span></p>
+                <p class="font-black text-slate-900 uppercase tracking-wider text-[10px] border-b border-slate-100 pb-1.5">Reserva Geral da Família</p>
+                <p class="flex justify-between"><span class="text-slate-400">Nº de Reserva Decolar:</span> <span class="font-mono font-bold text-slate-800">157542350500</span></p>
             </div>
 
             <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-2xs">
@@ -242,6 +163,7 @@
 
     </main>
 
+    <!-- MOBILE BOTTOM TAB BAR -->
     <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] flex justify-around items-center px-2 py-2 max-w-md mx-auto rounded-t-xl">
         <button id="nav-roteiro" onclick="changeMainTab('roteiro')" class="flex flex-col items-center gap-1 text-slate-400 active-tab transition-all">
             <i class="fa-solid fa-calendar-days text-lg"></i>
@@ -265,24 +187,26 @@
         </button>
     </nav>
 
+    <!-- MODAL DO CARTÃO DE EMBARQUE INTERATIVO DINÂMICO -->
     <div id="boardingPassModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
         <div class="w-full max-w-sm bg-white rounded-2xl overflow-hidden shadow-2xl border border-gray-200 animate-in fade-in zoom-in-95 duration-150">
+            <!-- Header do Modal -->
             <div class="bg-slate-900 text-white px-5 py-3.5 flex justify-between items-center">
                 <div>
                     <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Passageiro</p>
-                    <h3 class="text-xs font-black text-white tracking-wide">JOSÉ FÁBIO CARNEIRO DA SILVA</h3>
+                    <h3 id="modalPassengerName" class="text-xs font-black text-white tracking-wide">JOSÉ FÁBIO CARNEIRO DA SILVA</h3>
                 </div>
                 <div class="text-right">
-                    <span class="text-base font-black text-sky-400 tracking-tighter uppercase">azul</span>
-                    <p class="text-[8px] text-slate-400 tracking-widest uppercase">Linhas Aéreas</p>
+                    <span id="modalCiaName" class="text-base font-black text-sky-400 tracking-tighter uppercase">azul</span>
+                    <p class="text-[8px] text-slate-400 tracking-widest uppercase">Operadora</p>
                 </div>
             </div>
 
+            <!-- Corpo Principal -->
             <div class="px-5 py-6 bg-gradient-to-b from-slate-50 to-white relative">
                 <div class="flex justify-between items-center relative z-10">
                     <div class="text-left">
-                        <span class="block text-3xl font-black text-slate-800 tracking-tight">BEL</span>
-                        <span class="text-[10px] text-slate-500 font-bold">Belém, BR</span>
+                        <span id="modalOriginCode" class="block text-3xl font-black text-slate-800 tracking-tight">BEL</span>
                     </div>
                     <div class="flex-1 mx-3 relative flex items-center justify-center">
                         <div class="w-full border-t-2 border-dashed border-slate-300 absolute z-0"></div>
@@ -291,33 +215,30 @@
                         </div>
                     </div>
                     <div class="text-right">
-                        <span class="block text-3xl font-black text-slate-800 tracking-tight">GIG</span>
-                        <span class="text-[10px] text-slate-500 font-bold">Rio de Janeiro</span>
+                        <span id="modalDestCode" class="block text-3xl font-black text-slate-800 tracking-tight">GIG</span>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-3 gap-1 mt-5 pt-4 border-t border-gray-100 text-center">
+                <div class="grid grid-cols-2 gap-1 mt-5 pt-4 border-t border-gray-100 text-center">
                     <div>
-                        <span class="block text-[9px] text-gray-400 font-bold uppercase">Voo Inicial</span>
-                        <span class="text-xs font-black text-gray-700">AD 4787</span>
-                    </div>
-                    <div>
-                        <span class="block text-[9px] text-gray-400 font-bold uppercase">Data</span>
-                        <span class="text-xs font-black text-gray-700">07/08/2026</span>
+                        <span class="block text-[9px] text-gray-400 font-bold uppercase">Voo de Referência</span>
+                        <span id="modalFlightCode" class="text-xs font-black text-gray-700">AD 4787</span>
                     </div>
                     <div>
                         <span class="block text-[9px] text-gray-400 font-bold uppercase">Mala</span>
-                        <span class="text-xs font-black text-emerald-600"><i class="fas fa-suitcase text-[10px]"></i> Mão</span>
+                        <span class="text-xs font-black text-emerald-600"><i class="fas fa-suitcase text-[10px]"></i> Mão Inclusa</span>
                     </div>
                 </div>
             </div>
 
+            <!-- Linha Serrilhada Estética -->
             <div class="relative h-4 bg-white flex items-center justify-between overflow-hidden">
                 <div class="w-3 h-3 bg-black/60 rounded-full -ml-1.5"></div>
                 <div class="w-full border-t border-dashed border-gray-200 mx-1"></div>
                 <div class="w-3 h-3 bg-black/60 rounded-full -mr-1.5"></div>
             </div>
 
+            <!-- Campo de Segurança com Regra estrita Anti-Quebra -->
             <div class="px-5 py-4 bg-slate-50 border-t border-gray-100">
                 <div class="flex items-center justify-between bg-white border border-gray-200 rounded-xl p-2.5 shadow-2xs">
                     <span class="text-xs font-black text-slate-500 uppercase tracking-wider">Localizador</span>
@@ -330,8 +251,9 @@
                 </div>
             </div>
 
+            <!-- Footer do Modal -->
             <div class="p-5 bg-white border-t border-gray-100 flex flex-col gap-2">
-                <a href="https://www.voazul.com.br/br/pt/home/check-in" target="_blank" rel="noopener noreferrer" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-xl text-center tracking-wide text-xs">
+                <a id="modalCheckinLink" href="https://www.voazul.com.br/br/pt/home/check-in" target="_blank" rel="noopener noreferrer" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-xl text-center tracking-wide text-xs">
                     FAZER CHECK-IN
                 </a>
                 <button onclick="closeBoardingPassModal()" class="w-full bg-slate-100 text-slate-500 font-bold py-2 rounded-xl text-[11px]">
@@ -341,7 +263,107 @@
         </div>
     </div>
 
+    <!-- DATA ARRAYS AND LOGIC SCRIPTS -->
     <script>
+        // BANCO DE DADOS INTEGRADO DOS PASSAGEIROS E SEUS RESPECTIVOS VOOS
+        const PASSENGERS_DATA = [
+            {
+                id: 0,
+                nome: "JOSÉ FÁBIO CARNEIRO DA SILVA",
+                subname: "José Fábio",
+                docLabel: "CPF",
+                docValue: "04305242770",
+                ciaRef: "Azul",
+                checkinUrl: "https://www.voazul.com.br/br/pt/home/check-in",
+                voosIda: [
+                    { voo: "Azul 4787", duracao: "3h 05min", orig: "BEL", dest: "CNF", origCity: "Belém, BR", destCity: "Belo Horizonte", horario: "Vem 07/08/2026 | 17:50 - 20:55", loc: "ZK2MVS", conexao: "Conexão em Belo Horizonte (CNF): 2h 35min" },
+                    { voo: "Azul 4110", duracao: "1h 05min", orig: "CNF", dest: "GIG", origCity: "Belo Horizonte", destCity: "Rio de Janeiro", horario: "Sex 07/08/2026 | 23:30 - 00:35 (Sáb)", loc: "ZK2MVS" }
+                ],
+                voosVolta: [
+                    { voo: "Azul 2898", duracao: "1h 10min", orig: "SDU", dest: "VCP", origCity: "Rio de Janeiro", destCity: "São Paulo", horario: "Dom 23/08/2026 | 10:05 - 11:15", loc: "ZK2MVS", conexao: "Conexão em Campinas (VCP): 1h 35min" },
+                    { voo: "Azul 4070", duracao: "3h 25min", orig: "VCP", dest: "BEL", origCity: "São Paulo", destCity: "Belém, BR", horario: "Dom 23/08/2026 | 12:50 - 16:15", loc: "ZK2MVS" }
+                ]
+            },
+            {
+                id: 1,
+                nome: "JOSE CARNEIRO DA SILVA",
+                subname: "José Carneiro",
+                docLabel: "Doc",
+                docValue: "GB014475",
+                ciaRef: "LATAM / Delta",
+                checkinUrl: "https://www.latamairlines.com",
+                voosIda: [
+                    { voo: "LA 3341", duracao: "1h 15min", orig: "GIG", dest: "GRU", origCity: "Rio de Janeiro", destCity: "São Paulo", horario: "08/08/2026 | 07:00 - 08:15", loc: "IHMHAX", conexao: "Conexão em Guarulhos (GRU): 1h 45min" },
+                    { voo: "LA 8194", duracao: "7h 25min", orig: "GRU", dest: "MIA", origCity: "São Paulo", destCity: "Miami Intl.", horario: "08/08/2026 | 10:00 - 17:25", loc: "IHMHAX", conexao: "Conexão em Miami (MIA): 1h 49min" },
+                    { voo: "LA 7985 (Delta)", duracao: "5h 31min", orig: "MIA", dest: "LAX", origCity: "Miami Intl.", destCity: "Los Angeles", horario: "08/08/2026 | 19:14 - 21:45", loc: "HWFZGI" }
+                ],
+                voosVolta: [
+                    { voo: "LA 7015 (Delta)", duracao: "5h 27min", orig: "LAX", dest: "MIA", origCity: "Los Angeles", destCity: "Miami Intl.", horario: "20/08/2026 | 09:32 - 17:59", loc: "HWFZGI", conexao: "Conexão em Miami (MIA): 1h 41min" },
+                    { voo: "LA 8191", duracao: "8h 25min", orig: "MIA", dest: "GRU", origCity: "Miami Intl.", destCity: "São Paulo", horario: "20/08/2026 | 19:40 - 05:05 (21/08)", loc: "IHMHAX", conexao: "Conexão em Guarulhos (GRU): 2h 00min" },
+                    { voo: "LA 3342", duracao: "1h 00min", orig: "GRU", dest: "GIG", origCity: "São Paulo", destCity: "Rio de Janeiro", horario: "21/08/2026 | 07:05 - 08:05", loc: "IHMHAX" }
+                ]
+            },
+            {
+                id: 2,
+                nome: "DARIA BEZERRA JALES",
+                subname: "Daria Jales",
+                docLabel: "Doc",
+                docValue: "GB014476",
+                ciaRef: "LATAM / Delta",
+                checkinUrl: "https://www.latamairlines.com",
+                voosIda: [
+                    { voo: "LA 3341", duracao: "1h 15min", orig: "GIG", dest: "GRU", origCity: "Rio de Janeiro", destCity: "São Paulo", horario: "08/08/2026 | 07:00 - 08:15", loc: "IHMHAX", conexao: "Conexão em Guarulhos (GRU): 1h 45min" },
+                    { voo: "LA 8194", duracao: "7h 25min", orig: "GRU", dest: "MIA", origCity: "São Paulo", destCity: "Miami Intl.", horario: "08/08/2026 | 10:00 - 17:25", loc: "IHMHAX", conexao: "Conexão em Miami (MIA): 1h 49min" },
+                    { voo: "LA 7985", duracao: "5h 31min", orig: "MIA", dest: "LAX", origCity: "Miami Intl.", destCity: "Los Angeles", horario: "08/08/2026 | 19:14 - 21:45", loc: "HWFZGI" }
+                ],
+                voosVolta: [
+                    { voo: "LA 7015", duracao: "5h 27min", orig: "LAX", dest: "MIA", origCity: "Los Angeles", destCity: "Miami Intl.", horario: "20/08/2026 | 09:32 - 17:59", loc: "HWFZGI", conexao: "Conexão em Miami (MIA): 1h 41min" },
+                    { voo: "LA 8191", duracao: "8h 25min", orig: "MIA", dest: "GRU", origCity: "Miami Intl.", destCity: "São Paulo", horario: "20/08/2026 | 19:40 - 05:05 (21/08)", loc: "IHMHAX", conexao: "Conexão em Guarulhos (GRU): 2h 00min" },
+                    { voo: "LA 3342", duracao: "1h 00min", orig: "GRU", dest: "GIG", origCity: "São Paulo", destCity: "Rio de Janeiro", horario: "21/08/2026 | 07:05 - 08:05", loc: "IHMHAX" }
+                ]
+            },
+            {
+                id: 3,
+                nome: "RODRIGO JALES CARNEIRO DA SILVA",
+                subname: "Rodrigo Jales",
+                docLabel: "Doc",
+                docValue: "G0100910",
+                ciaRef: "LATAM / Delta",
+                checkinUrl: "https://www.latamairlines.com",
+                voosIda: [
+                    { voo: "LA 3341", duracao: "1h 15min", orig: "GIG", dest: "GRU", origCity: "Rio de Janeiro", destCity: "São Paulo", horario: "08/08/2026 | 07:00 - 08:15", loc: "IHMHAX", conexao: "Conexão em Guarulhos (GRU): 1h 45min" },
+                    { voo: "LA 8194", duracao: "7h 25min", orig: "GRU", dest: "MIA", origCity: "São Paulo", destCity: "Miami Intl.", horario: "08/08/2026 | 10:00 - 17:25", loc: "IHMHAX", conexao: "Conexão em Miami (MIA): 1h 49min" },
+                    { voo: "LA 7985", duracao: "5h 31min", orig: "MIA", dest: "LAX", origCity: "Miami Intl.", destCity: "Los Angeles", horario: "08/08/2026 | 19:14 - 21:45", loc: "HWFZGI" }
+                ],
+                voosVolta: [
+                    { voo: "LA 7015", duracao: "5h 27min", orig: "LAX", dest: "MIA", origCity: "Los Angeles", destCity: "Miami Intl.", horario: "20/08/2026 | 09:32 - 17:59", loc: "HWFZGI", conexao: "Conexão em Miami (MIA): 1h 41min" },
+                    { voo: "LA 8191", duracao: "8h 25min", orig: "MIA", dest: "GRU", origCity: "Miami Intl.", destCity: "São Paulo", horario: "20/08/2026 | 19:40 - 05:05 (21/08)", loc: "IHMHAX", conexao: "Conexão em Guarulhos (GRU): 2h 00min" },
+                    { voo: "LA 3342", duracao: "1h 00min", orig: "GRU", dest: "GIG", origCity: "São Paulo", destCity: "Rio de Janeiro", horario: "21/08/2026 | 07:05 - 08:05", loc: "IHMHAX" }
+                ]
+            },
+            {
+                id: 4,
+                nome: "MELISSA JALES CARNEIRO DA SILVA",
+                subname: "Melissa Jales",
+                docLabel: "Doc",
+                docValue: "G0044973",
+                ciaRef: "LATAM / Delta",
+                checkinUrl: "https://www.latamairlines.com",
+                voosIda: [
+                    { voo: "LA 3341", duracao: "1h 15min", orig: "GIG", dest: "GRU", origCity: "Rio de Janeiro", destCity: "São Paulo", horario: "08/08/2026 | 07:00 - 08:15", loc: "IHMHAX", conexao: "Conexão em Guarulhos (GRU): 1h 45min" },
+                    { voo: "LA 8194", duracao: "7h 25min", orig: "GRU", dest: "MIA", origCity: "São Paulo", destCity: "Miami Intl.", horario: "08/08/2026 | 10:00 - 17:25", loc: "IHMHAX", conexao: "Conexão em Miami (MIA): 1h 49min" },
+                    { voo: "LA 7985", duracao: "5h 31min", orig: "MIA", dest: "LAX", origCity: "Miami Intl.", destCity: "Los Angeles", horario: "08/08/2026 | 19:14 - 21:45", loc: "HWFZGI" }
+                ],
+                voosVolta: [
+                    { voo: "LA 7015", duracao: "5h 27min", orig: "LAX", dest: "MIA", origCity: "Los Angeles", destCity: "Miami Intl.", horario: "20/08/2026 | 09:32 - 17:59", loc: "HWFZGI", conexao: "Conexão em Miami (MIA): 1h 41min" },
+                    { voo: "LA 8191", duracao: "8h 25min", orig: "MIA", dest: "GRU", origCity: "Miami Intl.", destCity: "São Paulo", horario: "20/08/2026 | 19:40 - 05:05 (21/08)", loc: "IHMHAX", conexao: "Conexão em Guarulhos (GRU): 2h 00min" },
+                    { voo: "LA 3342", duracao: "1h 00min", orig: "GRU", dest: "GIG", origCity: "São Paulo", textDest: "Rio de Janeiro", horario: "21/08/2026 | 07:05 - 08:05", loc: "IHMHAX" }
+                ]
+            }
+        ];
+
+        let activePassengerId = 0;
+
         const HOTELS_DATA = [
             { nome: "Hotel Indigo Los Angeles Downtown", checkIn: "08/08/2026", checkOut: "14/08/2026", end: "899 Francisco St, Los Angeles, CA 90017", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600&h=300" },
             { nome: "Clarion Hotel Anaheim Resort", checkIn: "14/08/2026", checkOut: "16/08/2026", end: "616 Convention Way, Anaheim, CA 92802", img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600&h=300" },
@@ -352,90 +374,235 @@
         const ITINERARY_DATA = [
             { dia: "08/08", semana: "Sáb", titulo: "Chegada em Los Angeles & Check-in", periodos: [{ nome: "Noite", atividades: ["Pouso no Aeroporto Internacional de Los Angeles (LAX)", "Deslocamento e Check-in no Hotel Indigo Los Angeles Downtown"] }] },
             { dia: "09/08", semana: "Dom", titulo: "Santa Mônica e Venice Beach", periodos: [
-                { nome: "Manhã", atividades: ["Passeio pelo Santa Monica Pier e Pacific Park", "Visita ao Aquário de Santa Monica (Heal the Bay Aquarium)"] },
-                { nome: "Tarde", atividades: ["Compras no Calçadão Third Street Promenade e no Shopping Santa Monica Place", "Caminhada em Venice Beach Boardwalk e visita ao Skate Park", "Exploração cênica pelos Canais de Venice e Abbot Kinney Boulevard"] }
+                { nome: "Manhã", atividades: ["Passeio pelo Santa Monica Pier e Pacific Park[cite: 1]", "Visita ao Aquário de Santa Monica (Heal the Bay Aquarium)[cite: 1]"] },
+                { nome: "Tarde", atividades: ["Compras no Calçadão Third Street Promenade e no Shopping Santa Monica Place[cite: 1]", "Caminhada em Venice Beach Boardwalk e visita ao Skate Park[cite: 1]", "Exploração cênica pelos Canais de Venice e Abbot Kinney Boulevard[cite: 1]"] }
             ]},
             { dia: "10/08", semana: "Seg", titulo: "Calçada da Fama, Museus e Compras", periodos: [
-                { nome: "Manhã", atividades: ["Tour partindo do Centro de Visitantes da Big Bus Tours na Calçada da Fama", "Caminhada ao longo da icônica Hollywood Walk of Fame"] },
-                { nome: "Tarde", atividades: ["Passagem pelo Beverly Gardens Park", "Visita cultural ao museu LACMA (Urban Light) e Academy Museum (Museu do Oscar)", "Compras e almoço no complexo aberto The Grove e arredores"] }
+                { nome: "Manhã", atividades: ["Tour partindo do Centro de Visitantes da Big Bus Tours na Calçada da Fama[cite: 1]", "Caminhada ao longo da icônica Hollywood Walk of Fame[cite: 1]"] },
+                { nome: "Tarde", atividades: ["Passagem pelo Beverly Gardens Park[cite: 1]", "Visita cultural ao museu LACMA (Urban Light) e Academy Museum (Museu do Oscar)[cite: 1]", "Compras e almoço no complexo aberto The Grove e arredores[cite: 1]"] }
             ]},
-            { dia: "11/08", semana: "Ter", titulo: "Universal Studios Hollywood", periodos: [{ nome: "Dia Todo", atividades: ["Imersão total no parque temático Universal Studios Hollywood", "Passeio noturno pelas lojas e restaurantes do Universal CityWalk"] }] },
+            { dia: "11/08", semana: "Ter", titulo: "Universal Studios Hollywood", periodos: [{ nome: "Dia Todo", atividades: ["Imersão total no parque temático Universal Studios Hollywood[cite: 1]", "Passeio noturno pelas lojas e restaurantes do Universal CityWalk[cite: 1]"] }] },
             { dia: "12/08", semana: "Qua", titulo: "Estúdios de Cinema, Getty Center e Observatório", periodos: [
-                { nome: "Manhã", atividades: ["Tour completo pelos bastidores da Warner Bros. Studio Tour Hollywood", "Passagem pela Warner Bros. Studio Store para itens exclusivos"] },
-                { nome: "Tarde", atividades: ["Visita aos suntuosos acervos e jardins do Getty Center", "Fim de tarde e pôr do sol clássico no Observatório Griffith"] }
+                { nome: "Manhã", atividades: ["Tour completo pelos bastidores da Warner Bros. Studio Tour Hollywood[cite: 1]", "Passagem pela Warner Bros. Studio Store para itens exclusivos[cite: 1]"] },
+                { nome: "Tarde", atividades: ["Visita aos suntuosos acervos e jardins do Getty Center[cite: 1]", "Fim de tarde e pôr do sol clássico no Observatório Griffith[cite: 1]"] }
             ]},
             { dia: "13/08", semana: "Qui", titulo: "Malibu Beach Tour & Grandes Outlets", periodos: [
-                { nome: "Manhã", atividades: ["Passeio pela costa de Malibu: Malibu Pier, Surfrider Beach, Zuma Beach e El Matador State Beach", "Parada histórica na The Getty Villa e Reserva Natural Point Dume"] },
-                { nome: "Tarde", atividades: ["Maratona opcional de compras nos grandes centros comerciais:", "• Beverly Center (Shopping interno central)", "• Camarillo Premium Outlets (Marcas de grife ao ar livre)", "• Citadel Outlets (Mais próximo de LA)", "• Ontario Mills (Maior outlet fechado da região)"] }
+                { nome: "Manhã", atividades: ["Passeio pela costa de Malibu: Malibu Pier, Surfrider Beach, Zuma Beach e El Matador State Beach[cite: 1]", "Parada histórica na The Getty Villa e Reserva Natural Point Dume[cite: 1]"] },
+                { nome: "Tarde", atividades: ["Maratona opcional de compras nos grandes centros comerciais:", "• Beverly Center (Shopping interno central)[cite: 1]", "• Camarillo Premium Outlets (Marcas de grife ao ar livre)[cite: 1]", "• Citadel Outlets (Mais próximo de LA)[cite: 1]", "• Ontario Mills (Maior outlet fechado da região)[cite: 1]"] }
             ]},
-            { dia: "14/08", semana: "Sex", titulo: "Transição para Anaheim & Disney California Adventure", periodos: [{ nome: "Dia Todo", atividades: ["Check-out em Los Angeles e descida de carro para Anaheim", "Check-in no Clarion Hotel Anaheim Resort", "Entrada no Parque Disney California Adventure", "Passeio noturno livre pelo distrito de Downtown Disney"] }] },
-            { dia: "15/08", semana: "Sáb", titulo: "Disneyland Park Original", periodos: [{ nome: "Dia Todo", atividades: ["Visita ao parque clássico original Disneyland Park California", "Compras de lembranças exclusivas na clássica loja Emporium (Main Street USA)"] }] },
-            { dia: "16/08", semana: "Dom", titulo: "Descida para San Diego & Gaslamp", periodos: [{ nome: "Tarde/Noite", atividades: ["Check-out em Anaheim e viagem em direção a San Diego", "Check-in no The Sofia Hotel", "Passeio cultural pelos jardins do Balboa Park", "Jantar na atmosfera histórica e boêmia do bairro Gaslamp Quarter"] }] },
+            { dia: "14/08", semana: "Sex", titulo: "Transição para Anaheim & Disney California Adventure", periodos: [{ nome: "Dia Todo", atividades: ["Check-out em Los Angeles e descida de carro para Anaheim[cite: 1]", "Check-in no Clarion Hotel Anaheim Resort[cite: 1]", "Entrada no Parque Disney California Adventure[cite: 1]", "Passeio noturno livre pelo distrito de Downtown Disney[cite: 1]"] }] },
+            { dia: "15/08", semana: "Sáb", titulo: "Disneyland Park Original", periodos: [{ nome: "Dia Todo", atividades: ["Visita ao parque clássico original Disneyland Park California[cite: 1]", "Compras de lembranças exclusivas na clássica loja Emporium (Main Street USA)[cite: 1]"] }] },
+            { dia: "16/08", semana: "Dom", titulo: "Descida para San Diego & Gaslamp", periodos: [{ nome: "Tarde/Noite", atividades: ["Check-out em Anaheim e viagem em direção a San Diego[cite: 1]", "Check-in no The Sofia Hotel[cite: 1]", "Passeio cultural pelos jardins do Balboa Park[cite: 1]", "Jantar na atmosfera histórica e boêmia do bairro Gaslamp Quarter[cite: 1]"] }] },
             { dia: "17/08", semana: "Seg", titulo: "Orla de San Diego, La Jolla e Coronado", periodos: [
-                { nome: "Manhã", atividades: ["Caminhada pela orla central do Embarcadero e complexo Seaport Village", "Visita interna ao imponente porta-aviões museu USS Midway Museum", "Almoço ou paradas gastronômicas no dinâmico bairro de Little Italy"] },
-                { nome: "Tarde", atividades: ["Observação da colônia de leões-marinhos nos penhascos de La Jolla Cove", "Travessia da ponte San Diego-Coronado em direção à praia de Coronado Beach", "Visita ao icônico e histórico Hotel del Coronado"] }
+                { nome: "Manhã", atividades: ["Caminhada pela orla central do Embarcadero e complexo Seaport Village[cite: 1]", "Visita interna ao imponente porta-aviões museu USS Midway Museum[cite: 1]", "Almoço ou paradas gastronômicas no dinâmico bairro de Little Italy[cite: 1]"] },
+                { nome: "Tarde", atividades: ["Observação da colônia de leões-marinhos nos penhascos de La Jolla Cove[cite: 1]", "Travessia da ponte San Diego-Coronado em direção à praia de Coronado Beach[cite: 1]", "Visita ao icônico e histórico Hotel del Coronado[cite: 1]"] }
             ]},
-            { dia: "18/08", semana: "Ter", titulo: "SeaWorld San Diego ou Grandes Compras", periodos: [{ nome: "Dia Todo", atividades: ["Dia dedicado ao complexo marinho SeaWorld San Diego", "Alternativa ou complemento de compras de marcas famosas no Las Americas Premium Outlets ou no elegante shopping aberto Fashion Valley Mall"] }] },
-            { dia: "19/08", semana: "Qua", titulo: "Retorno estratégico para LAX", periodos: [{ nome: "Tarde", atividades: ["Check-out em San Diego e subida de volta para a grande Los Angeles", "Check-in de segurança no Hilton Garden Inn LAX Los Angeles Airport para facilitação do embarque matutino"] }] },
-            { dia: "20/08", semana: "Qui", titulo: "Fim do Roteiro & Aeroporto", periodos: [{ nome: "Manhã", atividades: ["Check-out bem cedo no hotel de LAX", "Devolução do carro e embarque internacional para o Brasil"] }] }
+            { dia: "18/08", semana: "Ter", titulo: "SeaWorld San Diego ou Grandes Compras", periodos: [{ nome: "Dia Todo", atividades: ["Dia dedicado ao complexo marinho SeaWorld San Diego[cite: 1]", "Alternativa ou complemento de compras de marcas famosas no Las Americas Premium Outlets ou no elegante shopping aberto Fashion Valley Mall[cite: 1]"] }] },
+            { dia: "19/08", semana: "Qua", titulo: "Retorno estratégico para LAX", periodos: [{ nome: "Tarde", atividades: ["Check-out em San Diego e subida de volta para a grande Los Angeles[cite: 1]", "Check-in de segurança no Hilton Garden Inn LAX Los Angeles Airport para facilitação do embarque matutino[cite: 1]"] }] },
+            { dia: "20/08", semana: "Qui", titulo: "Fim do Roteiro & Aeroporto", periodos: [{ nome: "Manhã", atividades: ["Check-out bem cedo no hotel de LAX[cite: 1]", "Devolução do carro e embarque internacional para o Brasil"] }] }
         ];
 
         const PLACES_DATA = {
             atracoes: [
-                { dia: "09/08", nome: "Píer de Santa Mônica", end: "200 Santa Monica Pier, Santa Monica, CA 90401", nota: "Ponto final da mítica Rota 66." },
-                { dia: "09/08", nome: "Pacific Park", end: "380 Santa Monica Pier, Santa Monica, CA 90401", nota: "Parque com a famosa roda gigante movida a energia solar." },
-                { dia: "09/08", nome: "Aquário de Santa Monica", end: "1600 Ocean Front Walk, Santa Monica, CA 90401" },
-                { dia: "09/08", nome: "Venice Beach Boardwalk", end: "Ocean Front Walk, Venice, CA 90291" },
-                { dia: "09/08", nome: "Venice Beach Skate Park", end: "1800 Ocean Front Walk, Venice, CA 90291" },
-                { dia: "09/08", nome: "Canais de Venice", end: "Venice Canals, Venice, CA 90291" },
-                { dia: "10/08", nome: "Calçada da Fama", end: "Hollywood Blvd & Vine St, Los Angeles, CA 90028" },
-                { dia: "10/08", nome: "Centro de Visitantes Big Bus Tours", end: "6763 Hollywood Boulevard, Los Angeles, CA 90028" },
-                { dia: "10/08", nome: "Beverly Gardens Park", end: "9385 Santa Monica Blvd, Beverly Hills, CA 90210" },
-                { dia: "10/08", nome: "LACMA", end: "5905 Wilshire Blvd, Los Angeles, CA 90036" },
-                { dia: "10/08", nome: "Academy Museum of Motion Pictures", end: "6067 Wilshire Blvd, Los Angeles, CA 90036" },
-                { dia: "11/08", nome: "Universal Studios Hollywood", end: "100 Universal City Plaza, Universal City, CA 91608" },
-                { dia: "11/08", nome: "Universal CityWalk", end: "100 Universal City Plaza, Universal City, CA 91608" },
-                { dia: "12/08", nome: "Warner Bros. Studio Tour Hollywood", end: "3400 Warner Blvd, Burbank, CA 91505" },
-                { dia: "12/08", nome: "Getty Center", end: "1200 Getty Center Dr, Los Angeles, CA 90049" },
-                { dia: "12/08", nome: "Observatório Griffith", end: "2800 E Observatory Rd, Los Angeles, CA 90027" },
-                { dia: "13/08", nome: "Píer de Malibu", end: "23000 Pacific Coast Hwy, Malibu, CA 90265" },
-                { dia: "13/08", nome: "Praia de Surfrider", end: "23050 Pacific Coast Hwy, Malibu, CA 90265" },
-                { dia: "13/08", nome: "Praia de Zuma", end: "30000 Pacific Coast Hwy, Malibu, CA 90265" },
-                { dia: "13/08", nome: "Praia El Matador", end: "32350 Pacific Coast Hwy, Malibu, CA 90265" },
-                { dia: "13/08", nome: "The Getty Villa", end: "17985 Pacific Coast Hwy, Pacific Palisades, CA 90272" },
-                { dia: "13/08", nome: "Reserva Natural Point Dume", end: "Cliffside Dr, Malibu, CA 90265" },
-                { dia: "14/08", nome: "Disney California Adventure", end: "1313 Disneyland Dr, Anaheim, CA 92802" },
-                { dia: "15/08", nome: "Disneyland Park California", end: "1313 Disneyland Dr, Anaheim, CA 92802" },
-                { dia: "16/08", nome: "Balboa Park", end: "1549 El Prado, San Diego, CA 92101" },
-                { dia: "16/08", nome: "San Diego Zoo", end: "2920 Zoo Dr, San Diego, CA 92101" },
-                { dia: "16/08", nome: "Gaslamp Quarter", end: "614 5th Ave, San Diego, CA 92101" },
-                { dia: "17/08", nome: "Embarcadero San Diego", end: "N Harbor Dr, San Diego, CA 92101" },
-                { dia: "17/08", nome: "Seaport Village", end: "849 W Harbor Dr, San Diego, CA 92101" },
-                { dia: "17/08", nome: "USS Midway Museum", end: "910 N Harbor Dr, San Diego, CA 92101" },
-                { dia: "17/08", nome: "Bairro Little Italy", end: "Little Italy, San Diego, CA 92101" },
-                { dia: "17/08", nome: "La Jolla Cove", end: "1100 Coast Blvd, La Jolla, CA 92037" },
-                { dia: "17/08", nome: "Ponte San Diego-Coronado", end: "CA-75, San Diego, CA 92118" },
-                { dia: "17/08", nome: "Praia de Coronado", end: "Ocean Blvd, Coronado, CA 92118" },
-                { dia: "17/08", nome: "Hotel del Coronado", end: "1500 Orange Ave, Coronado, CA 92118" },
-                { dia: "18/08", nome: "SeaWorld San Diego", end: "500 SeaWorld Drive, San Diego, CA 92109" }
+                { dia: "09/08", nome: "Píer de Santa Mônica", end: "200 Santa Monica Pier, Santa Monica, CA 90401[cite: 1]" },
+                { dia: "09/08", nome: "Pacific Park", end: "380 Santa Monica Pier, Santa Monica, CA 90401[cite: 1]" },
+                { dia: "09/08", nome: "Aquário de Santa Monica", end: "1600 Ocean Front Walk, Santa Monica, CA 90401[cite: 1]" },
+                { dia: "09/08", nome: "Venice Beach Boardwalk", end: "Ocean Front Walk, Venice, CA 90291[cite: 1]" },
+                { dia: "09/08", nome: "Venice Beach Skate Park", end: "1800 Ocean Front Walk, Venice, CA 90291[cite: 1]" },
+                { dia: "09/08", nome: "Canais de Venice", end: "Venice Canals, Venice, CA 90291[cite: 1]" },
+                { dia: "10/08", nome: "Calçada da Fama", end: "Hollywood Blvd & Vine St, Los Angeles, CA 90028[cite: 1]" },
+                { dia: "10/08", nome: "Centro de Visitantes Big Bus Tours", end: "6763 Hollywood Boulevard, Los Angeles, CA 90028[cite: 1]" },
+                { dia: "10/08", nome: "Beverly Gardens Park", end: "9385 Santa Monica Blvd, Beverly Hills, CA 90210[cite: 1]" },
+                { dia: "10/08", nome: "LACMA", end: "5905 Wilshire Blvd, Los Angeles, CA 90036[cite: 1]" },
+                { dia: "10/08", nome: "Academy Museum of Motion Pictures", end: "6067 Wilshire Blvd, Los Angeles, CA 90036[cite: 1]" },
+                { dia: "11/08", nome: "Universal Studios Hollywood", end: "100 Universal City Plaza, Universal City, CA 91608[cite: 1]" },
+                { dia: "11/08", nome: "Universal CityWalk", end: "100 Universal City Plaza, Universal City, CA 91608[cite: 1]" },
+                { dia: "12/08", nome: "Warner Bros. Studio Tour Hollywood", end: "3400 Warner Blvd, Burbank, CA 91505[cite: 1]" },
+                { dia: "12/08", nome: "Getty Center", end: "1200 Getty Center Dr, Los Angeles, CA 90049[cite: 1]" },
+                { dia: "12/08", nome: "Observatório Griffith", end: "2800 E Observatory Rd, Los Angeles, CA 90027[cite: 1]" },
+                { dia: "13/08", nome: "Píer de Malibu", end: "23000 Pacific Coast Hwy, Malibu, CA 90265[cite: 1]" },
+                { dia: "13/08", nome: "Praia de Surfrider", end: "23050 Pacific Coast Hwy, Malibu, CA 90265[cite: 1]" },
+                { dia: "13/08", nome: "Praia de Zuma", end: "30000 Pacific Coast Hwy, Malibu, CA 90265[cite: 1]" },
+                { dia: "13/08", nome: "Praia El Matador", end: "32350 Pacific Coast Hwy, Malibu, CA 90265[cite: 1]" },
+                { dia: "13/08", nome: "The Getty Villa", end: "17985 Pacific Coast Hwy, Pacific Palisades, CA 90272[cite: 1]" },
+                { dia: "13/08", nome: "Reserva Natural Point Dume", end: "Cliffside Dr, Malibu, CA 90265[cite: 1]" },
+                { dia: "14/08", nome: "Disney California Adventure", end: "1313 Disneyland Dr, Anaheim, CA 92802[cite: 1]" },
+                { dia: "15/08", nome: "Disneyland Park California", end: "1313 Disneyland Dr, Anaheim, CA 92802[cite: 1]" },
+                { dia: "16/08", nome: "Balboa Park", end: "1549 El Prado, San Diego, CA 92101[cite: 1]" },
+                { dia: "16/08", nome: "San Diego Zoo", end: "2920 Zoo Dr, San Diego, CA 92101[cite: 1]" },
+                { dia: "16/08", nome: "Gaslamp Quarter", end: "614 5th Ave, San Diego, CA 92101[cite: 1]" },
+                { dia: "17/08", nome: "Embarcadero San Diego", end: "N Harbor Dr, San Diego, CA 92101[cite: 1]" },
+                { dia: "17/08", nome: "Seaport Village", end: "849 W Harbor Dr, San Diego, CA 92101[cite: 1]" },
+                { dia: "17/08", nome: "USS Midway Museum", end: "910 N Harbor Dr, San Diego, CA 92101[cite: 1]" },
+                { dia: "17/08", nome: "Bairro Little Italy", end: "Little Italy, San Diego, CA 92101[cite: 1]" },
+                { dia: "17/08", nome: "La Jolla Cove", end: "1100 Coast Blvd, La Jolla, CA 92037[cite: 1]" },
+                { dia: "17/08", nome: "Ponte San Diego-Coronado", end: "CA-75, San Diego, CA 92118[cite: 1]" },
+                { dia: "17/08", nome: "Praia de Coronado", end: "Ocean Blvd, Coronado, CA 92118[cite: 1]" },
+                { dia: "17/08", nome: "Hotel del Coronado", end: "1500 Orange Ave, Coronado, CA 92118[cite: 1]" },
+                { dia: "18/08", nome: "SeaWorld San Diego", end: "500 SeaWorld Drive, San Diego, CA 92109[cite: 1]" }
             ],
             compras: [
-                { dia: "09/08", nome: "Third Street Promenade", end: "1351 3rd Street Promenade, Santa Monica, CA 90401", marcas: "Calçadão de pedestres com lojas integradas." },
-                { dia: "09/08", nome: "Santa Monica Place", end: "395 Santa Monica Place, Santa Monica, CA 90401", marcas: "Shopping center moderno de 3 pavimentos." },
-                { dia: "09/08", nome: "Abbot Kinney Boulevard", end: "Abbot Kinney Blvd, Venice, CA 90291", marcas: "Lojas de conceito aberto, boutiques artesanais e design." },
-                { dia: "10/08", nome: "The Grove / The Grove Company", end: "189 The Grove Dr, Los Angeles, CA 90036", marcas: "Complexo charmoso a céu aberto integrado." },
-                { dia: "10/08", nome: "Rodeio Drive", end: "Rodeo Dr, Beverly Hills, CA 90210", marcas: "Ponto icônico de comércio e vitrines de alto luxo internacional." },
-                { dia: "12/08", nome: "Warner Bros. Studio Store", end: "3400 Warner Blvd, Burbank, CA 91505", marcas: "Produtos exclusivos do estúdio, DC Comics, Harry Potter, etc." },
-                { dia: "13/08", nome: "1. Beverly Center", end: "8500 Beverly Blvd, Los Angeles, CA 90048", marcas: "Shopping Center em ambiente interno clássico em LA." },
-                { dia: "13/08", nome: "2. Camarillo Premium Outlets", end: "740 E Ventura Blvd, Camarillo, CA 93010", marcas: "Armani, Calvin Klein, Diesel, Coach, J.Crew, Kate Spade, Michael Kors, Polo Ralph Lauren, Timberland, Nike, Tommy Hilfiger, Tory Burch." },
-                { dia: "13/08", nome: "3. Citadel Outlets", end: "100 Citadel Dr, Commerce, CA 90040", marcas: "Nike, Coach, Kate Spade, Michael Kors, Levi's, lululemon, The North Face, Tory Burch, Vuori, Adidas, Puma, GAP, Calvin Klein, Guess, Lacoste, Disney Outlet." },
-                { dia: "13/08", nome: "4. Ontario Mills", end: "1 Mills Cir, Ontario, CA 91764", marcas: "Saks Fifth Avenue OFF 5TH, Nordstrom Rack, Michael Kors, Hollister, Nike, Calvin Klein, Tommy Hilfiger, Last Call (Neiman Marcus), Columbia, Vans." },
-                { dia: "14/08", nome: "Downtown Disney District", end: "1580 Disneyland Dr, Anaheim, CA 92802", marcas: "Lojas e alimentação temáticas sem exigência de ingresso." },
-                { dia: "15/08", nome: "Emporium (Main Street USA)", end: "1313 Disneyland Dr (Inside Disneyland Park), Anaheim, CA 92802", marcas: "Loja de departamentos oficial histórica no interior do parque." },
-                { dia: "18/08", nome: "Las Americas Premium Outlets", end: "4211 Camino De La Plaza, San Diego, CA 92173", marcas: "Nike, Adidas, Calvin Klein, Coach, Guess, Michael Kors." },
-                { dia: "18/08", nome: "Fashion Valley Mall", end: "7007 Friars Rd, San Diego, CA 92108", marcas: "Nordstrom, Gucci, Apple, Louis Vuitton, Zara, Nike." }
+                { dia: "09/08", nome: "Third Street Promenade", end: "1351 3rd Street Promenade, Santa Monica, CA 90401[cite: 1]", marcas: "Calçadão de pedestres com lojas integradas[cite: 1]." },
+                { dia: "09/08", nome: "Santa Monica Place", end: "395 Santa Monica Place, Santa Monica, CA 90401[cite: 1]", marcas: "Shopping center moderno de 3 pavimentos[cite: 1]." },
+                { dia: "09/08", nome: "Abbot Kinney Boulevard", end: "Abbot Kinney Blvd, Venice, CA 90291[cite: 1]", marcas: "Lojas de conceito aberto, boutiques artesanais e design[cite: 1]." },
+                { dia: "10/08", nome: "The Grove / The Grove Company", end: "189 The Grove Dr, Los Angeles, CA 90036[cite: 1]", marcas: "Complexo charmoso a céu aberto integrado[cite: 1]." },
+                { dia: "10/08", nome: "Rodeio Drive", end: "Rodeo Dr, Beverly Hills, CA 90210[cite: 1]", marcas: "Ponto icônico de comércio e vitrines de alto luxo internacional[cite: 1]." },
+                { dia: "12/08", nome: "Warner Bros. Studio Store", end: "3400 Warner Blvd, Burbank, CA 91505[cite: 1]", marcas: "Produtos exclusivos do estúdio, DC Comics, Harry Potter, etc[cite: 1]." },
+                { dia: "13/08", nome: "1. Beverly Center", end: "8500 Beverly Blvd, Los Angeles, CA 90048[cite: 1]", marcas: "Shopping Center em ambiente interno clássico em LA[cite: 1]." },
+                { dia: "13/08", nome: "2. Camarillo Premium Outlets", end: "740 E Ventura Blvd, Camarillo, CA 93010[cite: 1]", marcas: "Armani, Calvin Klein, Diesel, Coach, J.Crew, Kate Spade, Michael Kors, Polo Ralph Lauren, Timberland, Nike, Tommy Hilfiger, Tory Burch[cite: 1]." },
+                { dia: "13/08", nome: "3. Citadel Outlets", end: "100 Citadel Dr, Commerce, CA 90040[cite: 1]", marcas: "Nike, Coach, Kate Spade, Michael Kors, Levi's, lululemon, The North Face, Tory Burch, Vuori, Adidas, Puma, GAP, Calvin Klein, Guess, Lacoste, Disney Outlet[cite: 1]." },
+                { dia: "13/08", nome: "4. Ontario Mills", end: "1 Mills Cir, Ontario, CA 91764[cite: 1]", marcas: "Saks Fifth Avenue OFF 5TH, Nordstrom Rack, Michael Kors, Hollister, Nike, Calvin Klein, Tommy Hilfiger, Last Call (Neiman Marcus), Columbia, Vans[cite: 1]." },
+                { dia: "14/08", nome: "Downtown Disney District", end: "1580 Disneyland Dr, Anaheim, CA 92802[cite: 1]", marcas: "Lojas e alimentação temáticas sem exigência de ingresso[cite: 1]." },
+                { dia: "15/08", nome: "Emporium (Main Street USA)", end: "1313 Disneyland Dr (Inside Disneyland Park), Anaheim, CA 92802[cite: 1]", marcas: "Loja de departamentos oficial histórica no interior do parque[cite: 1]." },
+                { dia: "18/08", nome: "Las Americas Premium Outlets", end: "4211 Camino De La Plaza, San Diego, CA 92173[cite: 1]", marcas: "Nike, Adidas, Calvin Klein, Coach, Guess, Michael Kors[cite: 1]." },
+                { dia: "18/08", nome: "Fashion Valley Mall", end: "7007 Friars Rd, San Diego, CA 92108[cite: 1]", marcas: "Nordstrom, Gucci, Apple, Louis Vuitton, Zara, Nike[cite: 1]." }
             ]
         };
+
+        // INICIALIZAÇÃO E MONTAGEM DE BOTÕES DOS PASSAGEIROS
+        function renderPassengerSelector() {
+            const container = document.getElementById('passenger-buttons-container');
+            container.innerHTML = '';
+            
+            PASSENGERS_DATA.forEach(p => {
+                const isActive = p.id === activePassengerId;
+                const activeClasses = isActive ? "bg-sky-600 text-white font-black shadow-sm" : "bg-slate-100 text-slate-600 font-bold hover:bg-slate-200";
+                container.innerHTML += `
+                    <button onclick="selectPassenger(${p.id})" class="text-[10px] px-2 py-2 rounded-lg text-center transition-all truncate ${activeClasses}">
+                        ${p.subname}
+                    </button>
+                `;
+            });
+        }
+
+        // ALTERA O PASSAGEIRO ATIVO E REDERIZA SUAS INFOS DE VOO
+        function selectPassenger(id) {
+            activePassengerId = id;
+            renderPassengerSelector();
+            updateFlightsDisplay();
+            updateModalData();
+        }
+
+        function updateFlightsDisplay() {
+            const display = document.getElementById('passenger-flights-display');
+            const p = PASSENGERS_DATA.find(x => x.id === activePassengerId);
+            
+            let html = `
+                <!-- Bloco Cadastral do Passageiro Selecionado -->
+                <div class="bg-slate-900 text-white p-3.5 rounded-xl text-xs space-y-1">
+                    <p class="font-black tracking-wide">${p.nome}</p>
+                    <div class="flex justify-between text-[11px] text-slate-400 font-mono pt-1 border-t border-white/10">
+                        <span>${p.docLabel}: ${p.docValue}</span>
+                        <span>Cia Principal: ${p.ciaRef}</span>
+                    </div>
+                </div>
+            `;
+
+            // Trechos de Ida
+            html += `
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-black uppercase tracking-wider text-sky-700 bg-sky-50 px-2 py-0.5 rounded">Trechos de Ida</span>
+                    </div>
+            `;
+            p.voosIda.forEach(v => {
+                html += `
+                    <div class="bg-white rounded-xl shadow-2xs border border-slate-200/60 p-4 relative overflow-hidden">
+                        <div class="absolute left-0 top-0 h-full w-1 bg-sky-600"></div>
+                        <div class="flex justify-between items-center mb-1.5">
+                            <span class="text-xs font-black text-slate-800">${v.voo}</span>
+                            <span class="text-[10px] bg-slate-100 text-slate-500 font-bold px-2 py-0.5 rounded">Duração: ${v.duracao}</span>
+                        </div>
+                        <p class="text-[10px] font-medium text-slate-400 mb-2"><i class="fa-regular fa-clock mr-0.5"></i> ${v.horario}</p>
+                        <div class="flex justify-between items-center bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                            <div>
+                                <p class="text-sm font-black text-slate-900">${v.orig}</p>
+                                <p class="text-[9px] text-slate-400 truncate max-w-[100px]">${v.origCity}</p>
+                            </div>
+                            <i class="fa-solid fa-plane text-slate-300 text-xs transform rotate-45"></i>
+                            <div class="text-right">
+                                <p class="text-sm font-black text-slate-900">${v.dest}</p>
+                                <p class="text-[9px] text-slate-400 truncate max-w-[100px]">${v.destCity}</p>
+                            </div>
+                        </div>
+                        <div class="mt-2 pt-2 border-t border-slate-100 flex justify-between items-center text-[10px]">
+                            <span class="text-slate-400 font-medium">Localizador do trecho:</span>
+                            <span class="font-mono font-black text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded">${v.loc}</span>
+                        </div>
+                    </div>
+                `;
+                if(v.conexao) {
+                    html += `
+                        <div class="flex items-center gap-2 px-3 text-[10px] font-bold text-amber-600">
+                            <i class="fa-solid fa-clock text-amber-500"></i>
+                            <span>${v.conexao}</span>
+                        </div>
+                    `;
+                }
+            });
+            html += `</div>`;
+
+            // Trechos de Volta
+            html += `
+                <div class="space-y-3 pt-1">
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-black uppercase tracking-wider text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">Trechos de Volta</span>
+                    </div>
+            `;
+            p.voosVolta.forEach(v => {
+                html += `
+                    <div class="bg-white rounded-xl shadow-2xs border border-slate-200/60 p-4 relative overflow-hidden">
+                        <div class="absolute left-0 top-0 h-full w-1 bg-indigo-600"></div>
+                        <div class="flex justify-between items-center mb-1.5">
+                            <span class="text-xs font-black text-slate-800">${v.voo}</span>
+                            <span class="text-[10px] bg-slate-100 text-slate-500 font-bold px-2 py-0.5 rounded">Duração: ${v.duracao}</span>
+                        </div>
+                        <p class="text-[10px] font-medium text-slate-400 mb-2"><i class="fa-regular fa-clock mr-0.5"></i> ${v.horario}</p>
+                        <div class="flex justify-between items-center bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                            <div>
+                                <p class="text-sm font-black text-slate-900">${v.orig}</p>
+                                <p class="text-[9px] text-slate-400 truncate max-w-[100px]">${v.origCity}</p>
+                            </div>
+                            <i class="fa-solid fa-plane text-slate-300 text-xs transform rotate-45"></i>
+                            <div class="text-right">
+                                <p class="text-sm font-black text-slate-900">${v.dest}</p>
+                                <p class="text-[9px] text-slate-400 truncate max-w-[100px]">${v.destCity || ''}</p>
+                            </div>
+                        </div>
+                        <div class="mt-2 pt-2 border-t border-slate-100 flex justify-between items-center text-[10px]">
+                            <span class="text-slate-400 font-medium">Localizador do trecho:</span>
+                            <span class="font-mono font-black text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded">${v.loc}</span>
+                        </div>
+                    </div>
+                `;
+                if(v.conexao) {
+                    html += `
+                        <div class="flex items-center gap-2 px-3 text-[10px] font-bold text-amber-600">
+                            <i class="fa-solid fa-clock text-amber-500"></i>
+                            <span>${v.conexao}</span>
+                        </div>
+                    `;
+                }
+            });
+            html += `</div>`;
+
+            display.innerHTML = html;
+        }
+
+        // SINCRONIZA OS DADOS DO MODAL BASEADO NO PASSAGEIRO CLICADO
+        function updateModalData() {
+            const p = PASSENGERS_DATA.find(x => x.id === activePassengerId);
+            document.getElementById('modalPassengerName').innerText = p.nome;
+            document.getElementById('modalCiaName').innerText = p.id === 0 ? "azul" : "latam";
+            
+            // Dados primários do primeiro voo de ida cadastrado para visualização rápida no cartão
+            const primeiroVoo = p.voosIda[0];
+            document.getElementById('modalOriginCode').innerText = primeiroVoo.orig;
+            document.getElementById('modalDestCode').innerText = primeiroVoo.dest;
+            document.getElementById('modalFlightCode').innerText = primeiroVoo.voo;
+            document.getElementById('locatorCode').innerText = primeiroVoo.loc;
+            document.getElementById('modalCheckinLink').href = p.checkinUrl;
+        }
 
         // INJEÇÃO DOS HOTÉIS NA ABA RESPECTIVA
         const hotelList = document.getElementById('hotel-list');
@@ -473,7 +640,7 @@
                 `;
             });
 
-            const showFirst = index === 1 ? "" : "hidden"; // Inicia expandido apenas o segundo dia como referência
+            const showFirst = index === 1 ? "" : "hidden";
             const iconRot = index === 1 ? "rotate-180" : "";
 
             itineraryList.innerHTML += `
@@ -516,7 +683,7 @@
             });
         }
 
-        // CONTROLADOR DE ALTERAÇÃO DA ABA PRINCIPAL (BOTTOM BAR)
+        // CONTROLADOR DE NAVEGAÇÃO DA ABA PRINCIPAL (BOTTOM BAR)
         function changeMainTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.getElementById(`content-${tabId}`).classList.remove('hidden');
@@ -526,7 +693,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
             if(tabId === 'explorar') {
-                switchSubTab('atracoes'); // Reseta para atrações sempre que entra
+                switchSubTab('atracoes');
             }
         }
 
@@ -551,7 +718,6 @@
                                     <h4 class="font-black text-slate-800 text-xs leading-tight">${p.nome}</h4>
                                 </div>
                                 <p class="text-[10px] text-slate-400 leading-tight font-medium">${p.end}</p>
-                                ${p.nota ? `<p class="text-[10px] text-amber-600 font-bold bg-amber-50/50 border border-amber-100/60 px-1.5 py-0.5 rounded mt-1">${p.nota}</p>` : ''}
                             </div>
                             <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.nome + ' ' + p.end)}" target="_blank" class="w-7 h-7 rounded-lg bg-slate-50 border border-slate-200 text-slate-500 flex items-center justify-center shrink-0 active:bg-sky-50 active:text-sky-600 shadow-3xs">
                                 <i class="fa-solid fa-location-arrow text-[10px]"></i>
@@ -572,7 +738,7 @@
                                     <h4 class="font-black text-slate-800 text-xs leading-tight">${p.nome}</h4>
                                 </div>
                                 <p class="text-[10px] text-slate-400 leading-tight font-medium">${p.end}</p>
-                                <p class="text-[11px] text-slate-600 font-normal leading-relaxed pt-1 border-t border-slate-50 mt-1"><span class="font-bold text-slate-400 block text-[9px] uppercase tracking-wider">Foco / Marcas Relacionadas:</span> ${p.marcas}</p>
+                                <p class="text-[11px] text-slate-600 font-normal leading-relaxed pt-1 border-t border-slate-50 mt-1"><span class="font-bold text-slate-400 block text-[9px] uppercase tracking-wider">Foco / Marcas:</span> ${p.marcas}</p>
                             </div>
                             <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.nome + ' ' + p.end)}" target="_blank" class="w-7 h-7 rounded-lg bg-slate-50 border border-slate-200 text-slate-500 flex items-center justify-center shrink-0 active:bg-sky-50 active:text-sky-600 shadow-3xs">
                                 <i class="fa-solid fa-location-arrow text-[10px]"></i>
@@ -583,7 +749,7 @@
             }
         }
 
-        // LÓGICA DO CARTÃO DE EMBARQUE INTERATIVO
+        // LÓGICA DO CARTÃO DE EMBARQUE INTERATIVO RESILIENTE
         function openBoardingPassModal() {
             document.getElementById('boardingPassModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -601,7 +767,7 @@
             document.body.appendChild(tempInput);
             
             tempInput.select();
-            tempInput.setSelectionRange(0, 99999); // Mobile
+            tempInput.setSelectionRange(0, 99999);
             
             try {
                 const success = document.execCommand('copy');
@@ -611,12 +777,11 @@
                     setTimeout(() => { icon.className = 'fas fa-copy text-xs'; }, 2000);
                 }
             } catch (err) {
-                console.error('Erro na cópia', err);
+                console.error('Erro na execução da cópia', err);
             }
             document.body.removeChild(tempInput);
         }
 
-        // Fecha o modal se tocar fora dele
         window.onclick = function(e) {
             const modal = document.getElementById('boardingPassModal');
             if (e.target === modal) { closeBoardingPassModal(); }
@@ -637,6 +802,11 @@
             document.getElementById('cd-days').innerText = days;
             document.getElementById('cd-hours').innerText = hours.toString().padStart(2, '0');
         }
+
+        // APRESENTAÇÃO INICIAL DA PÁGINA
+        renderPassengerSelector();
+        updateFlightsDisplay();
+        updateModalData();
         setInterval(updateMiniCountdown, 1000 * 60);
         updateMiniCountdown();
     </script>
