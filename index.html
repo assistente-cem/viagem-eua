@@ -309,43 +309,108 @@
         ];
 
         const ITINERARY_DATA = [
-            { dia: "08/08", dateObj: "2026-08-08", semana: "Sáb", titulo: "Chegada em Los Angeles & Check-in", weatherIcon: "fa-sun text-amber-500", temp: "28°C", periodos: [{ nome: "Noite", atividades: ["Pouso no Aeroporto Internacional de Los Angeles (LAX)", "Deslocamento e Check-in no Hotel Indigo Los Angeles Downtown"] }] },
+            { dia: "08/08", dateObj: "2026-08-08", semana: "Sáb", titulo: "Chegada em Los Angeles & Check-in", weatherIcon: "fa-sun text-amber-500", temp: "28°C", periodos: [{ nome: "Noite", atividades: ["Pouso programado no Aeroporto Internacional de Los Angeles (LAX) às 21:45h", "Deslocamento e check-in no luxuoso Hotel Indigo Los Angeles Downtown"] }] },
             { dia: "09/08", dateObj: "2026-08-09", semana: "Dom", titulo: "Santa Mônica e Venice Beach", weatherIcon: "fa-cloud-sun text-sky-500", temp: "24°C", periodos: [
-                { nome: "Manhã", atividades: ["Passeio pelo Santa Monica Pier e Pacific Park", "Visita ao Aquário de Santa Monica"] },
-                { nome: "Tarde", atividades: ["Compras no Calçadão Third Street Promenade", "Caminhada em Venice Beach e visita aos canais históricos"] }
+                { nome: "Manhã e Almoço", atividades: ["Santa Monica Píer: Conhecer o icônico ponto final da histórica Rota 66", "Pacific Park: Andar na famosa roda gigante movida a energia solar e na montanha-russa clássica à moda antiga", "Visita ao Aquário de Santa Monica (Heal the Bay Aquarium)", "Passear no Third Street Promenade: Calçadão exclusivo para pedestres com lojas, músicos e artistas de rua", "Santa Monica Place: Explorar o luxuoso shopping integrado de três andares"] },
+                { nome: "Tarde", atividades: ["Venice Beach: Caminhada na vibrante orla marítima (Ocean Front Walk ou Venice Boardwalk)", "Venice Beach Skate Park: Visitar uma das pistas de skate de concreto mais famosas do mundo", "Venice Canals: Passeio cênico pelas pontes e canais residenciais históricos inspirados em Veneza (localizados entre Venice Blvd e Washington Blvd)", "Abbot Kinney Boulevard: Explorar o charmoso shopping a céu aberto repleto de galerias, cafeterias e restaurantes", "Acessar mapa da rota do dia: https://maps.app.goo.gl/o8jagXTCQsMQYQjC8"] }
             ]},
-            { dia: "10/08", dateObj: "2026-08-10", semana: "Seg", titulo: "Calçada da Fama & Museus", weatherIcon: "fa-sun text-amber-500", temp: "29°C", periodos: [
-                { nome: "Manhã", atividades: ["Caminhada ao longo da icônica Hollywood Walk of Fame"] },
-                { nome: "Tarde", atividades: ["Visita cultural ao LACMA (Urban Light) e compras no complexo aberto The Grove"] }
+            { dia: "10/08", dateObj: "2026-08-10", semana: "Seg", titulo: "Hollywood, Museus & Big Bus Tours", weatherIcon: "fa-sun text-amber-500", temp: "29°C", periodos: [
+                { nome: "Manhã", atividades: ["Big Bus Tours (Bilhete Discover): Acesso de 24 horas ao Circuito das Praias (Linha Azul) e Circuito Hollywood (Linha Vermelha)", "Troca de vouchers no Centro de Visitantes da Big Bus: 6763 Hollywood Boulevard, Los Angeles, CA 90028 (entre Highland Ave e McCadden Place)", "Circuito Hollywood: Ônibus saem da Parada 1 das 10h às 16h30 (frequência de 30-45min)", "Circuito Praia (Linha Azul): Saídas da Parada 7 (Beverly Gardens Park) às 10:30, 11:30, 13:00, 14:00 e 15:15h. Saídas da Parada 16 (Santa Monica Pier) às 11:00, 12:00, 13:30, 14:30 e 15:45h"] },
+                { nome: "Tarde: LACMA", atividades: ["Los Angeles County Museum of Art (5905 Wilshire Blvd): Aberto de 11h às 18h na segunda-feira", "Mais de 140 mil obras de Picasso, Paul Klee, Jasper Johns, René Magritte, Diego Rivera, David Hockney", "Alas prioritárias: Arte Moderna/Contemporânea, Pop Art, Arte Latino-Americana, Arte Asiática, Islâmica e Antiguidades egípcias/romanas", "Dica: Tours guiados gratuitos inclusos no ingresso (chegar 15 minutos antes)"] },
+                { nome: "Tarde/Noite: Academy Museum", atividades: ["Academy Museum of Motion Pictures (6067 Wilshire Blvd): O maior museu interativo de cinema do mundo (aberto das 10h às 18h)", "Nível 2 (Stories of Cinema): Equipamentos históricos, adereços lendários de Casablanca e Oscars de verdade", "Nível 3 (Sci-Fi e Fantasia): Peças icônicas de Star Wars, armadura do Homem de Ferro e retrospectiva de Hayao Miyazaki", "Ver o modelo original em fibra de vidro do Tubarão de 'Jaws' de 540 kg nas passarelas entre os blocos", "Aproveitar o Terraço com vista panorâmica espetacular das colinas e do letreiro de Hollywood", "Acessar mapa da rota do dia: https://maps.app.goo.gl/V8kyy2U9YAXNHL836"] }
             ]},
-            { dia: "11/08", dateObj: "2026-08-11", semana: "Ter", titulo: "Universal Studios Hollywood", weatherIcon: "fa-sun text-amber-500", temp: "30°C", periodos: [{ nome: "Dia Todo", atividades: ["Imersão total no parque temático Universal Studios Hollywood", "Jantar livre no movimentado Universal CityWalk"] }] },
-            { dia: "12/08", dateObj: "2026-08-12", semana: "Qua", titulo: "Warner Studios & Pôr do Sol no Griffith", weatherIcon: "fa-sun text-amber-500", temp: "29°C", periodos: [
-                { nome: "Manhã", atividades: ["Tour completo pelos bastidores da Warner Bros. Studio Tour Hollywood"] },
-                { nome: "Tarde", atividades: ["Visita aos jardins do Getty Center", "Fim de tarde clássico no Observatório Griffith"] }
+            { dia: "11/08", dateObj: "2026-08-11", semana: "Ter", titulo: "Universal Studios Hollywood", weatherIcon: "fa-sun text-amber-500", temp: "30°C", periodos: [
+                { nome: "Atrações Principais", atividades: ["Super Nintendo World™: Correr no Mario Kart™: Bowser's Challenge equipado com óculos de realidade aumentada", "The Wizarding World of Harry Potter™: Embarcar no simulador tecnológico Harry Potter and the Forbidden Journey dentro do castelo de Hogwarts", "Studio Tour: Passear de bonde pelos sets reais ativos da Universal Pictures, com simulações e efeitos especiais ao vivo", "Jurassic World - The Ride: Desbravar a área dos dinossauros no Lower Lot terminando com uma enorme queda d'água", "Minion Land & Springfield: Se divertir nas áreas com brinquedos e simuladores dos Simpsons e Meu Malvado Favorito"] },
+                { nome: "Instruções de Transporte (Metrô)", atividades: ["1. Embarcar na Union Station em Downtown LA", "2. Comprar o TAP Card e pegar a Linha B (Vermelha) sentido North Hollywood", "3. Descer na estação Universal City/Studio City (13 paradas, 35 a 45 minutos)", "4. Cruzar a passarela e embarcar no shuttle ônibus elétrico gratuito que passa a cada 5 min rumo à entrada do parque", "Horários: Parque aberto de 09:00h às 21:00h. CityWalk aberto de 11:00h às 22:00h", "Rota de metrô: https://maps.app.goo.gl/LGOZDNwrx7NRq6jC6 | Rota de carro: https://maps.app.goo.gl/At2auxxHM5mULFN86"] }
             ]},
-            { dia: "13/08", dateObj: "2026-08-13", semana: "Qui", titulo: "Malibu Beach Tour & Grandes Outlets", weatherIcon: "fa-cloud-sun text-sky-500", temp: "23°C", periodos: [{ nome: "Dia Todo", atividades: ["Passeio cênico pela costa de Malibu", "Parada estratégica de compras no Citadel Outlets ou Camarillo"] }] },
-            { dia: "14/08", dateObj: "2026-08-14", semana: "Sex", titulo: "Anaheim & Disney California Adventure", weatherIcon: "fa-sun text-amber-500", temp: "31°C", periodos: [{ nome: "Dia Todo", atividades: ["Deslocamento para Anaheim e check-in no Clarion Hotel", "Entrada no vibrante Parque Disney California Adventure"] }] },
-            { dia: "15/08", dateObj: "2026-08-15", semana: "Sáb", titulo: "Disneyland Park Original", weatherIcon: "fa-sun text-amber-500", temp: "32°C", periodos: [{ nome: "Dia Todo", atividades: ["Visita mágica ao parque clássico original Disneyland Park California"] }] },
-            { dia: "16/08", dateObj: "2026-08-16", semana: "Dom", titulo: "San Diego & Gaslamp Quarter", weatherIcon: "fa-cloud-sun text-sky-500", temp: "25°C", periodos: [{ nome: "Tarde/Noite", atividades: ["Check-out em Anaheim e descida para San Diego", "Check-in no The Sofia Hotel e passeio noturno no Gaslamp Quarter"] }] },
-            { dia: "17/08", dateObj: "2026-08-17", semana: "Seg", titulo: "USS Midway, La Jolla & Coronado", weatherIcon: "fa-sun text-amber-500", temp: "24°C", periodos: [{ nome: "Dia Todo", atividades: ["Visita ao porta-aviões USS Midway", "Observação dos leões-marinhos em La Jolla Cove e praia de Coronado"] }] },
-            { dia: "18/08", dateObj: "2026-08-18", semana: "Ter", titulo: "SeaWorld San Diego ou Compras", weatherIcon: "fa-cloud-sun text-sky-500", temp: "24°C", periodos: [{ nome: "Dia Todo", atividades: ["Dia dedicado ao complexo marinho SeaWorld San Diego ou Las Americas Outlets"] }] },
-            { dia: "19/08", dateObj: "2026-08-19", semana: "Qua", titulo: "Retorno estratégico para LAX", weatherIcon: "fa-sun text-amber-500", temp: "27°C", periodos: [{ nome: "Tarde", atividades: ["Viagem de retorno a Los Angeles e descanso no Hilton Garden Inn LAX"] }] },
-            { dia: "20/08", dateObj: "2026-08-20", semana: "Qui", titulo: "Retorno Internacional ao Brasil", weatherIcon: "fa-sun text-amber-500", temp: "28°C", periodos: [{ nome: "Manhã", atividades: ["Check-out em LAX, devolução do veículo alugado e embarque internacional"] }] }
+            { dia: "12/08", dateObj: "2026-08-12", semana: "Qua", titulo: "Warner Bros. Studios, Getty Center & Griffith", weatherIcon: "fa-sun text-amber-500", temp: "29°C", periodos: [
+                { nome: "Manhã", atividades: ["Warner Bros. Studio Tour Hollywood: Tour guiado de 2h de carrinho elétrico pelos backlots e sets ativos + 1h30 de exploração livre no Stage 48 (Central Perk de Friends, Batcaverna e Harry Potter)", "Duração total de 3h30. Tour inicia das 8h30 às 15h30. Loja oficial aberta até as 19h"] },
+                { nome: "Tarde", atividades: ["Getty Center (1200 Getty Center Dr): Museu arquitetônico incrível no alto de um morro com entrada, jardins e bondinho de acesso gratuitos (Aberto das 10h às 17h30)"] },
+                { nome: "Noite", atividades: ["Observatório Griffith (2800 E Observatory Rd): Exibições astronômicas gratuitas e telescópios históricos para observação do céu (aberto das 12h às 22h)", "Show do planetário cobrado à parte. Ideal para observar o pôr do sol e as luzes da cidade acesas", "Acessar mapa da rota do dia: https://maps.app.goo.gl/YX5ntf9Bajh8GRp39"] }
+            ]},
+            { dia: "13/08", dateObj: "2026-08-13", semana: "Qui", titulo: "Malibu & Roteiro de Compras nos Outlets", weatherIcon: "fa-cloud-sun text-sky-500", temp: "23°C", periodos: [
+                { nome: "Manhã e Tarde (Malibu)", atividades: ["Malibu Pier & Malibu Farm: Pier clássico de 1905 com restaurante orgânico e sustentável à beira-mar", "Surfrider Beach: Conhecer a praia histórica e ponto de encontro dos surfistas", "Zuma Beach: Praia longa com ótima infraestrutura para relaxar", "Praia El Matador: Praia paradisíaca com arcos de pedra naturais e falésias (leve água e lanche, não possui quiosques)", "Point Dume Nature Reserve: Mirante natural fantástico para ver leões-marinhos e baleias", "The Getty Villa (17985 Pacific Coast Hwy): Réplica de vila romana com obras antigas gregas e romanas. Entrada gratuita com agendamento prévio obrigatório", "Rota até Malibu: https://maps.app.goo.gl/BwaQxUNb6baZHkkR6"] },
+                { nome: "Tarde (Opções de Outlets de Descontos)", atividades: ["Opção 1: Camarillo Premium Outlets (O mais completo, noroeste de LA pela 101, ao ar livre, VIP Shopper Club cupons). Marcas: Armani, J.Crew, Timberland, Calvin Klein, Diesel, Kate Spade, Michael Kors, Polo Ralph Lauren, Tommy Hilfiger, Coach, Tory Burch, Nike (Rota: https://maps.app.goo.gl/aNyb77Ke2o3Yb56s7)", "Opção 2: Citadel Outlets (Commerce, perto de Downtown LA, 130 lojas). Marcas: Nike, Coach, Kate Spade, Michael Kors, Levi's, lululemon, The North Face, Tory Burch, Vuori, Adidas, Puma, GAP, Calvin Klein, Guess, Lacoste, Disney Outlet", "Como ir grátis de Citadel Express (Linha 600) saindo da Olympic Blvd & Figueroa St (3 blocos do Hotel Indigo). Viagem dura 40-45min. Passa a cada 30-60min de seg-sex. Pedir Savings Passport na chegada. (Rota: https://maps.app.goo.gl/3cBuvivEkxK6Ppg26)", "Opção 3: Ontario Mills (Ontario, 1h de LA, maior outlet fechado e climatizado da Califórnia). Marcas: Saks Fifth Avenue OFF 5TH, Nordstrom Rack, Michael Kors, Hollister, Nike, Calvin Klein, Tommy Hilfiger, Last Call (Neiman Marcus), Columbia, Vans. Trem Metrolink na Union Station até Ontario-East ou Montclair + Uber curto (Rota: https://maps.app.goo.gl/J7XLaTx8SeLf38zZ7)"] }
+            ]},
+            { dia: "14/08", dateObj: "2026-08-14", semana: "Sex", titulo: "Mudança para Anaheim & Disney California Adventure", weatherIcon: "fa-sun text-amber-500", temp: "31°C", periodos: [
+                { nome: "Manhã", atividades: ["Fazer check-out no Hotel Indigo em Los Angeles", "Deslocamento terrestre para Anaheim (Média de custo do Uber: USD 70 a USD 110)", "Check-in no Clarion Hotel Anaheim Resort"] },
+                { nome: "Tarde/Noite", atividades: ["Entrada no Parque Disney California Adventure: Focado em adrenalina e heróis", "Cars Land: Visitar direto a atração Radiator Springs Racers para aproveitar as filas curtas de manhã/tarde", "Avengers Campus: Conhecer a atração interativa WEB SLINGERS e despencar no elevador de Guardians of the Galaxy - Mission: BREAKOUT!", "Pixar Pier: Caminhar e se divertir na montanha-russa IncrediCoaster, no Toy Story Mania e na roda gigante Pixar Pal-A-Round", "Paradise Gardens: No fim da noite, assistir ao show aquático de projeções World of Color", "San Fransokyo: Área lindamente iluminada de Big Hero 6", "Grizzly Peak: Simulador clássico de voo livre Soarin' Around the World e Grizzly River Run (se o dia estiver quente)", "Hollywood Land: Curtir o filme 3D Philharmagic", "Downtown Disney: Passeio livre noturno fora do parque (não exige ingresso)"] }
+            ]},
+            { dia: "15/08", dateObj: "2026-08-15", semana: "Sáb", titulo: "Disneyland Park California (O Parque Original)", weatherIcon: "fa-sun text-amber-500", temp: "32°C", periodos: [
+                { nome: "Estratégia do Dia", atividades: ["Começar bem cedo pela Tomorrowland para andar na clássica Space Mountain e desviar rápido para a montanha-russa Matterhorn na Fantasyland de manhã cedo", "Deixar a movimentada área de Star Wars para o meio da tarde para evitar as enormes filas matinais"] },
+                { nome: "Atrações por Área", atividades: ["Tomorrowland: Space Mountain, Buzz Lightyear Astro Blasters, Finding Nemo Submarine Voyage, Star Tours", "Fantasyland: Matterhorn Bobsleds, caminhar por dentro do Castelo da Bela Adormecida, It's a Small World, show interativo Bluey's Best Day Ever!, Alice in Wonderland, Snow White's Enchanted Wish, Peter Pan's Flight, Pinocchio, King Arthur Carrousel, Dumbo", "Mickey's Toontown: Passeio em Mickey and Minnie's Runaway Railway, explorar a Mickey's House e Minnie's House, Chip 'n Dale's Coaster", "Frontierland: Curtir a montanha-russa clássica Big Thunder Mountain", "Star Wars: Galaxy's Edge: Simulador ultra-realista Star Wars: Rise of the Resistance e pilotar no Millennium Falcon: Smugglers Run", "Bayou Country: Montanha-russa molhada Tiana's Bayou Adventure", "New Orleans Square: Passear de barco no Pirates of the Caribbean e visitar a clássica Haunted Mansion", "Adventureland: Simulador imersivo Indiana Jones Adventure", "Main Street USA: Assistir ao show Fantasmic! à noite e explorar as vitrines animadas na clássica loja Emporium"] }
+            ]},
+            { dia: "16/08", dateObj: "2026-08-16", semana: "Dom", titulo: "Viagem para San Diego & Balboa Park", weatherIcon: "fa-cloud-sun text-sky-500", temp: "25°C", periodos: [
+                { nome: "Manhã", atividades: ["Fazer check-out em Anaheim e seguir para San Diego (Média do Uber: USD 100 a USD 280)", "Check-in no The Sofia Hotel (San Diego) e sair para desbravar a cidade"] },
+                { nome: "Tarde", atividades: ["Balboa Park (1549 El Prado): Explorar o parque cultural histórico inaugurado em 1868 (entrada gratuita nos jardins, museus pagos)", "San Diego Zoo: Visitar o zoológico referência mundial em conservação que abriga mais de 4 mil animais (pandas, flamingos, ursos polares, girafas, elefantes)"] },
+                { nome: "Noite", atividades: ["Gaslamp Quarter: Passear e jantar no charmoso distrito histórico repleto de rooftops, pubs e galerias", "Acessar mapa da rota do dia: https://maps.app.goo.gl/5B5WAqTVB7qGedMZA"] }
+            ]},
+            { dia: "17/08", dateObj: "2026-08-17", semana: "Seg", titulo: "Embarcadero, La Jolla Cove & Coronado", weatherIcon: "fa-sun text-amber-500", temp: "24°C", periodos: [
+                { nome: "Manhã", atividades: ["Caminhada na orla marítima do Embarcadero & Seaport Village", "10h00: Visitar o USS Midway Museum (910 N Harbor Dr), o gigantesco porta-aviões militar transformado em museu com mais de 60 exibições de caças e aeronaves"] },
+                { nome: "Almoço", atividades: ["Almoçar em Little Italy: Bairro super dinâmico e charmoso com o melhor da culinária italiana local"] },
+                { nome: "Tarde", atividades: ["La Jolla Cove (1100 Coast Blvd): Caminhar pelos penhascos e ver de perto a grande colônia de leões-marinhos deitados na areia e rochas"] },
+                { nome: "Fim do Dia", atividades: ["Ilha do Coronado: Atravessar de carro pela San Diego-Coronado Bridge ou via ferry. Caminhar pela Coronado Beach (uma das areias mais bonitas do país) e passear pelo lobby e áreas públicas do histórico Hotel del Coronado", "Finalizar o dia jantando em Seaport Village", "Acessar mapa da rota do dia: https://maps.app.goo.gl/wdQwWv5jQ2RtWgs76"] }
+            ]},
+            { dia: "18/08", dateObj: "2026-08-18", semana: "Ter", titulo: "SeaWorld & Compras em San Diego", weatherIcon: "fa-cloud-sun text-sky-500", temp: "24°C", periodos: [
+                { nome: "Dia Todo", atividades: ["SeaWorld San Diego (500 SeaWorld Drive): Visita completa de dia inteiro focada nos shows, apresentações e montanhas-russas (Rota: https://maps.app.goo.gl/gDxrwoayGTcRQrS19)"] },
+                { nome: "Compras", atividades: ["Opção 1: Las Americas Premium Outlets (a 20 min de Downtown): Mais de 125 outlets com descontos imperdíveis (Nike, Adidas, Calvin Klein, Coach, Guess, Michael Kors). (Rota: https://maps.app.goo.gl/JUdUkRc1RMg2U70E9)", "Opção 2: Fashion Valley Mall (Mission Valley): Elegante shopping aberto com cerca de 200 lojas de marcas (Nordstrom, Gucci, Apple, Louis Vuitton, Zara, Nike). (Rota: https://maps.app.goo.gl/iFt4M9kG82VjbM7H9)"] }
+            ]},
+            { dia: "19/08", dateObj: "2026-08-19", semana: "Qua", titulo: "Retorno estratégico para LAX", weatherIcon: "fa-sun text-amber-500", temp: "27°C", periodos: [{ nome: "Tarde", atividades: ["Fazer check-out no The Sofia Hotel em San Diego", "Viagem de carro de retorno a Los Angeles", "Check-in de segurança no Hilton Garden Inn LAX Los Angeles Airport para facilitar o embarque da manhã seguinte"] }] },
+            { dia: "20/08", dateObj: "2026-08-20", semana: "Qui", titulo: "Retorno Internacional ao Brasil", weatherIcon: "fa-sun text-amber-500", temp: "28°C", periodos: [{ nome: "Manhã", atividades: ["07:00h: Check-out em LAX e devolução do carro alugado", "Embarque de retorno programado às 09:32h com destino final ao Brasil"] }] }
         ];
 
         const PLACES_DATA = {
             atracoes: [
                 { dia: "09/08", nome: "Píer de Santa Mônica", end: "200 Santa Monica Pier, Santa Monica, CA 90401" },
+                { dia: "09/08", nome: "Pacific Park", end: "380 Santa Monica Pier, Santa Monica, CA 90401" },
+                { dia: "09/08", nome: "Aquário de Santa Monica", end: "1600 Ocean Front Walk, Santa Monica, CA 90401" },
+                { dia: "09/08", nome: "Venice Beach Boardwalk", end: "Ocean Front Walk, Venice, CA 90291" },
+                { dia: "09/08", nome: "Venice Beach Skate Park", end: "1800 Ocean Front Walk, Venice, CA 90291" },
+                { dia: "09/08", nome: "Canais de Venice", end: "Venice Canals, Venice, CA 90291" },
+                { dia: "10/08", nome: "Calçada da Fama", end: "Hollywood Blvd & Vine St, Los Angeles, CA 90028" },
+                { dia: "10/08", nome: "Centro de Visitantes da Big Bus", end: "6763 Hollywood Boulevard, Los Angeles, CA 90028" },
+                { dia: "10/08", nome: "Beverly Gardens Park", end: "9385 Santa Monica Blvd, Beverly Hills, CA 90210" },
+                { dia: "10/08", nome: "LACMA Museum", end: "5905 Wilshire Blvd, Los Angeles, CA 90036" },
+                { dia: "10/08", nome: "Academy Museum (Museu do Oscar)", end: "6067 Wilshire Blvd, Los Angeles, CA 90036" },
                 { dia: "11/08", nome: "Universal Studios Hollywood", end: "100 Universal City Plaza, Universal City, CA 91608" },
-                { dia: "12/08", nome: "Observatório Griffith", end: "2800 E Observatory Rd, Los Angeles, CA 90027" }
+                { dia: "12/08", nome: "Warner Bros. Studio Tour", end: "3400 Warner Blvd, Burbank, CA 91505" },
+                { dia: "12/08", nome: "Getty Center", end: "1200 Getty Center Dr, Los Angeles, CA 90049" },
+                { dia: "12/08", nome: "Observatório Griffith", end: "2800 E Observatory Rd, Los Angeles, CA 90027" },
+                { dia: "13/08", nome: "Píer de Malibu", end: "23000 Pacific Coast Hwy, Malibu, CA 90265" },
+                { dia: "13/08", nome: "Praia de Surfrider", end: "23050 Pacific Coast Hwy, Malibu, CA 90265" },
+                { dia: "13/08", nome: "Praia de Zuma", end: "30000 Pacific Coast Hwy, Malibu, CA 90265" },
+                { dia: "13/08", nome: "Praia El Matador", end: "32350 Pacific Coast Hwy, Malibu, CA 90265" },
+                { dia: "13/08", nome: "The Getty Villa", end: "17985 Pacific Coast Hwy, Pacific Palisades, CA 90272" },
+                { dia: "13/08", nome: "Reserva Natural Point Dume", end: "Cliffside Dr, Malibu, CA 90265" },
+                { dia: "14/08", nome: "Disney California Adventure", end: "1313 Disneyland Dr, Anaheim, CA 92802" },
+                { dia: "15/08", nome: "Disneyland Park California", end: "1313 Disneyland Dr, Anaheim, CA 92802" },
+                { dia: "16/08", nome: "Balboa Park", end: "1549 El Prado, San Diego, CA 92101" },
+                { dia: "16/08", nome: "San Diego Zoo", end: "2920 Zoo Dr, San Diego, CA 92101" },
+                { dia: "17/08", nome: "USS Midway Museum", end: "910 N Harbor Dr, San Diego, CA 92101" },
+                { dia: "17/08", nome: "La Jolla Cove", end: "1100 Coast Blvd, La Jolla, CA 92037" },
+                { dia: "17/08", nome: "Ponte San Diego-Coronado", end: "CA-75, San Diego, CA 92118" },
+                { dia: "17/08", nome: "Praia de Coronado", end: "Ocean Blvd, Coronado, CA 92118" },
+                { dia: "17/08", nome: "Hotel del Coronado", end: "1500 Orange Ave, Coronado, CA 92118" },
+                { dia: "18/08", nome: "SeaWorld San Diego", end: "500 SeaWorld Drive, San Diego, CA 92109" }
             ],
             compras: [
-                { dia: "13/08", nome: "Citadel Outlets", end: "100 Citadel Dr, Commerce, CA 90040", marcas: "Nike, Coach, Levi's, Gap, Calvin Klein." },
-                { dia: "18/08", nome: "Las Americas Premium Outlets", end: "4211 Camino De La Plaza, San Diego, CA 92173", marcas: "Adidas, Calvin Klein, Guess, Michael Kors." }
+                { dia: "09/08", nome: "Third Street Promenade", end: "1351 3rd Street Promenade, Santa Monica, CA 90401" },
+                { dia: "09/08", nome: "Santa Monica Place", end: "395 Santa Monica Place, Santa Monica, CA 90401" },
+                { dia: "09/08", nome: "Abbot Kinney Boulevard", end: "Abbot Kinney Blvd, Venice, CA 90291" },
+                { dia: "10/08", nome: "The Grove Company", end: "189 The Grove Dr, Los Angeles, CA 90036" },
+                { dia: "10/08", nome: "Rodeo Drive (Beverly Hills)", end: "Rodeo Dr, Beverly Hills, CA 90210" },
+                { dia: "12/08", nome: "Loja do estúdio Warner Bros.", end: "3400 Warner Blvd, Burbank, CA 91505" },
+                { dia: "13/08", nome: "Beverly Center (Shopping)", end: "8500 Beverly Blvd, Los Angeles, CA 90048" },
+                { dia: "13/08", nome: "Camarillo Premium Outlets", end: "740 E Ventura Blvd, Camarillo, CA 93010", marcas: "Armani, J.Crew, Timberland, Calvin Klein, Diesel, Kate Spade, Michael Kors, Polo Ralph Lauren, Tommy Hilfiger, Coach, Tory Burch, Nike." },
+                { dia: "13/08", nome: "Citadel Outlets", end: "100 Citadel Dr, Commerce, CA 90040", marcas: "Nike, Coach, Kate Spade, Michael Kors, Levi's, lululemon, The North Face, Tory Burch, Vuori, Adidas, Puma, GAP, Calvin Klein, Guess, Lacoste, Disney Outlet." },
+                { dia: "13/08", nome: "Ontario Mills Outlet", end: "1 Mills Cir, Ontario, CA 91764", marcas: "Saks Fifth Avenue OFF 5TH, Nordstrom Rack, Michael Kors, Hollister, Nike, Calvin Klein, Tommy Hilfiger, Last Call (Neiman Marcus), Columbia, Vans." },
+                { dia: "14/08", nome: "Downtown Disney", end: "1580 Disneyland Dr, Anaheim, CA 92802" },
+                { dia: "15/08", nome: "Emporium (Disneyland Main St)", end: "1313 Disneyland Dr, Anaheim, CA 92802" },
+                { dia: "18/08", nome: "Las Americas Premium Outlets", end: "4211 Camino De La Plaza, San Diego, CA 92173", marcas: "Nike, Adidas, Calvin Klein, Coach, Guess, Michael Kors." },
+                { dia: "18/08", nome: "Fashion Valley Mall", end: "7007 Friars Rd, San Diego, CA 92108", marcas: "Nordstrom, Gucci, Apple, Louis Vuitton, Zara, Nike." }
             ]
         };
 
-        // RENDER DE PASSAGEIROS - TOTALMENTE REFATORADO PARA COMPACIDADE E CLAREZA
         function renderPassengerSelector() {
             const container = document.getElementById('passenger-buttons-container');
             container.innerHTML = '';
@@ -353,7 +418,7 @@
             PASSENGERS_DATA.forEach(p => {
                 const isActive = p.id === activePassengerId;
                 const activeClasses = isActive 
-                    ? "bg-gradient-to-r from-usnavy to-blue-900 text-white font-black shadow-md border-transparent scale-[1.01]" 
+                    ? "bg-gradient-to-r from-usblue to-blue-800 text-white font-black shadow-md border-transparent scale-[1.01]" 
                     : "bg-white text-slate-700 font-bold border-slate-200 hover:bg-slate-50";
                 
                 container.innerHTML += `
@@ -379,13 +444,12 @@
             updateFlightsDisplay();
         }
 
-        // MONTAGEM DOS CARDS DE VOO COM SELETOR DE CÓPIA INTERNA
         function updateFlightsDisplay() {
             const display = document.getElementById('passenger-flights-display');
             const p = PASSENGERS_DATA.find(x => x.id === activePassengerId);
             
             let html = `
-                <div class="bg-gradient-to-br from-usnavy to-slate-900 text-white p-4 rounded-2xl text-xs space-y-2.5 shadow-sm border border-slate-700/30">
+                <div class="bg-gradient-to-br from-usnavy to-slate-900 text-white p-4 rounded-2xl text-xs space-y-2.5 shadow-md border border-white/10">
                     <p class="font-black tracking-wide flex items-center gap-2 text-amber-400"><i class="fa-solid fa-passport"></i> Dados de Embarque</p>
                     <p class="text-white/90 font-bold text-xs">${p.nome}</p>
                     <div class="text-[10px] text-slate-400 font-mono pt-2 border-t border-white/10 flex justify-between items-center">
@@ -460,7 +524,6 @@
             display.innerHTML = html + renderSeccaoVoos("Trechos de Ida", p.voosIda, "bg-usblue") + `<div class="h-1"></div>` + renderSeccaoVoos("Trechos de Volta", p.voosVolta, "bg-usred");
         }
 
-        // INTEGRAÇÃO DO COMPONENTE DE HOTÉIS
         const hotelList = document.getElementById('hotel-list');
         HOTELS_DATA.forEach(h => {
             hotelList.innerHTML += `
@@ -484,7 +547,6 @@
             `;
         });
 
-        // CONSTROIR ROTEIRO COM FLUXO DE ABERTURA INTELIGENTE E DESTAQUE DA DATA EM VERMELHO-ESCARLATE (ESTILO EUA)
         function buildItineraryAndAutoOpen() {
             const itineraryList = document.getElementById('itinerary-list');
             itineraryList.innerHTML = '';
@@ -514,7 +576,7 @@
                     showClass = "";
                     chevronRotation = "rotate-180";
                     highlightBorder = "border-usblue ring-2 ring-blue-100 bg-blue-50/5";
-                    badgeCurrent = `<span class="text-[8px] bg-usblue text-white font-black px-1.5 py-0.5 rounded uppercase tracking-wide shrink-0">Hoje</span>`;
+                    badgeCurrent = `<span class="text-[8px] bg-usblue text-white font-black px-1.5 py-0.5 rounded shadow-sm">Hoje</span>`;
                     openedAnyDay = true;
                 }
 
@@ -574,7 +636,6 @@
             });
         }
 
-        // CONTROLE DE NAVEGAÇÃO PRINCIPAL (FOCANDO NO FAB ROTEIRO CENTRAL)
         function changeMainTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.getElementById(`content-${tabId}`).classList.remove('hidden');
@@ -604,7 +665,7 @@
 
             if(subType === 'atracoes') {
                 btnAtracoes.className = "flex-1 text-center font-black text-xs h-12 rounded-xl bg-white text-slate-900 shadow-sm transition-all duration-200";
-                btnCompras.className = "flex-1 text-center font-black text-xs h-12 rounded-xl text-slate-500 transition-all duration-200";
+                btnCompras.className = "flex-1 text-center font-black text-xs h-12 rounded-xl text-slate-600 transition-all duration-200";
                 PLACES_DATA.atracoes.forEach(p => {
                     container.innerHTML += `
                         <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-3xs flex justify-between items-center gap-3">
@@ -623,7 +684,7 @@
                 });
             } else {
                 btnCompras.className = "flex-1 text-center font-black text-xs h-12 rounded-xl bg-white text-slate-900 shadow-sm transition-all duration-200";
-                btnAtracoes.className = "flex-1 text-center font-black text-xs h-12 rounded-xl text-slate-500 transition-all duration-200";
+                btnAtracoes.className = "flex-1 text-center font-black text-xs h-12 rounded-xl text-slate-600 transition-all duration-200";
                 PLACES_DATA.compras.forEach(p => {
                     container.innerHTML += `
                         <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-3xs flex flex-col gap-2">
@@ -639,14 +700,13 @@
                                     <i class="fa-solid fa-location-arrow text-xs"></i>
                                 </a>
                             </div>
-                            <p class="text-[11px] text-slate-600 font-normal leading-relaxed pt-2 border-t border-slate-100"><span class="font-black text-slate-400 text-[8px] uppercase tracking-wider block mb-0.5">Destaques Comerciais:</span>${p.marcas}</p>
+                            <p class="text-[11px] text-slate-600 font-normal leading-relaxed pt-2 border-t border-slate-100"><span class="font-black text-slate-400 text-[8px] uppercase tracking-wider block mb-0.5">Destaques Comerciais:</span>${p.marcas || 'Ponto integrado mencionado no roteiro'}</p>
                         </div>
                     `;
                 });
             }
         }
 
-        // COPIAR COM FEEDBACK DE INTERAÇÃO VISUAL EM VERDE ESMERALDA
         function copyToClipboard(text, buttonElement) {
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(() => {
