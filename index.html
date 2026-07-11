@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roteiro Califórnia - Dária</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome para ícones simplificados -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background-color: #f97316;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-stone-100 font-sans text-slate-900 antialiased selection:bg-orange-500 selection:text-white">
+
+    <!-- HERO SECTION -->
+    <header class="relative bg-slate-900 text-white overflow-hidden py-24 px-6 md:px-12 text-center md:text-left shadow-lg">
+        <img 
+          src="https://images.unsplash.com/photo-1460881680858-30d872d5b530?auto=format&fit=crop&q=80&w=1920&h=800" 
+          alt="California Road Trip" 
+          class="absolute inset-0 w-full h-full object-cover opacity-40 object-center"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-950/90 to-slate-900/80"></div>
+        
+        <div class="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+                <span class="inline-block bg-orange-500 text-white font-bold text-xs px-3 py-1.5 rounded-full uppercase tracking-wider mb-4 shadow-sm">August 2026</span>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-2">Roteiro de Viagem da Dária</h1>
+                <p class="text-xl md:text-2xl text-blue-200 font-medium flex items-center justify-center md:justify-start gap-2">
+                    <i class="fa-solid fa-map-pin text-orange-400"></i> Los Angeles & San Diego, CA
+                </p>
+            </div>
+            
+            <!-- COUNTDOWN CONTAINER -->
+            <div id="countdown-box" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-4 rounded-2xl shadow-xl flex items-center gap-6 min-w-[280px] justify-center">
+                <div class="flex flex-col items-center">
+                    <span id="days" class="text-3xl font-black text-orange-400">00</span>
+                    <span class="text-[10px] uppercase tracking-widest text-slate-300 font-bold mt-1">Dias</span>
+                </div>
+                <span class="text-xl font-bold opacity-50">:</span>
+                <div class="flex flex-col items-center">
+                    <span id="hours" class="text-3xl font-black">00</span>
+                    <span class="text-[10px] uppercase tracking-widest text-slate-300 font-bold mt-1">Horas</span>
+                </div>
+                <span class="text-xl font-bold opacity-50">:</span>
+                <div class="flex flex-col items-center">
+                    <span id="minutes" class="text-3xl font-black">00</span>
+                    <span class="text-[10px] uppercase tracking-widest text-slate-300 font-bold mt-1">Min</span>
+                </div>
+                <span class="text-xl font-bold opacity-50">:</span>
+                <div class="flex flex-col items-center">
+                    <span id="seconds" class="text-3xl font-black text-blue-300">00</span>
+                    <span class="text-[10px] uppercase tracking-widest text-slate-300 font-bold mt-1">Seg</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT NAVIGATION BAR (STICKY) -->
+    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm overflow-x-auto">
+        <div class="max-w-6xl mx-auto flex justify-start md:justify-center items-center px-4">
+            <button onclick="scrollToSection('passagens')" class="flex items-center gap-2 px-5 py-4 font-bold text-sm text-slate-600 hover:text-blue-900 border-b-2 border-transparent hover:border-blue-900 whitespace-nowrap transition-all">
+                <i class="fa-solid fa-plane text-orange-500"></i> Passagens Aéreas
+            </button>
+            <button onclick="scrollToSection('hospedagem')" class="flex items-center gap-2 px-5 py-4 font-bold text-sm text-slate-600 hover:text-blue-900 border-b-2 border-transparent hover:border-blue-900 whitespace-nowrap transition-all">
+                <i class="fa-solid fa-bed text-orange-500"></i> Hospedagem
+            </button>
+            <button onclick="scrollToSection('roteiro')" class="flex items-center gap-2 px-5 py-4 font-bold text-sm text-blue-900 border-b-2 border-blue-900 whitespace-nowrap transition-all">
+                <i class="fa-solid fa-calendar-days text-orange-500"></i> Cronograma Diário
+            </button>
+            <button onclick="scrollToSection('explorar')" class="flex items-center gap-2 px-5 py-4 font-bold text-sm text-slate-600 hover:text-blue-900 border-b-2 border-transparent hover:border-blue-900 whitespace-nowrap transition-all">
+                <i class="fa-solid fa-compass text-orange-500"></i> Explorar Atrações
+            </button>
+            <button onclick="scrollToSection('info')" class="flex items-center gap-2 px-5 py-4 font-bold text-sm text-slate-600 hover:text-blue-900 border-b-2 border-transparent hover:border-blue-900 whitespace-nowrap transition-all">
+                <i class="fa-solid fa-circle-info text-orange-500"></i> Informações Úteis
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- SECTION: PASSAGENS -->
+        <section id="passagens" class="scroll-mt-20">
+            <div class="flex items-center gap-2 mb-6">
+                <div class="bg-blue-900 text-white p-2.5 rounded-xl shadow-sm">
+                    <i class="fa-solid fa-plane text-lg"></i>
+                </div>
+                <h2 class="text-2xl font-black text-blue-950">Passagens Aéreas</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- VOO IDA -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 relative overflow-hidden transition-all hover:shadow-md">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-blue-600"></div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-[10px] font-black uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md">Voo de Ida</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-2">08/08/2026</h3>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs text-slate-400 block font-medium">Voo</span>
+                            <p class="font-bold text-blue-900 bg-slate-100 px-2 py-0.5 rounded text-sm">AA 9876</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between bg-slate-50 p-4 rounded-xl border border-slate-100 mt-6">
+                        <div class="text-left">
+                            <p class="text-2xl font-black text-blue-950">21:45h</p>
+                            <p class="text-xs text-slate-500 font-bold mt-0.5">GRU (São Paulo)</p>
+                            <p class="text-[10px] text-slate-400 mt-1">Terminal 3</p>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center justify-center px-4">
+                            <div class="w-full h-[2px] bg-slate-200 relative flex justify-center items-center">
+                                <i class="fa-solid fa-plane text-orange-400 absolute text-sm bg-slate-50 px-1 transform rotate-45"></i>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-2xl font-black text-blue-950">Chegada</p>
+                            <p class="text-xs text-slate-500 font-bold mt-0.5">LAX (Los Angeles)</p>
+                            <p class="text-[10px] text-slate-400 mt-1">Califórnia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VOO VOLTA -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 relative overflow-hidden transition-all hover:shadow-md">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-orange-500"></div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-[10px] font-black uppercase tracking-wider text-orange-700 bg-orange-50 px-2.5 py-1 rounded-md">Voo de Volta</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-2">20/08/2026</h3>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs text-slate-400 block font-medium">Voo</span>
+                            <p class="font-bold text-blue-900 bg-slate-100 px-2 py-0.5 rounded text-sm">AA 1234</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between bg-slate-50 p-4 rounded-xl border border-slate-100 mt-6">
+                        <div class="text-left">
+                            <p class="text-2xl font-black text-blue-950">09:32h</p>
+                            <p class="text-xs text-slate-500 font-bold mt-0.5">SAN (San Diego)</p>
+                            <p class="text-[10px] text-slate-400 mt-1">Terminal 2</p>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center justify-center px-4">
+                            <div class="w-full h-[2px] bg-slate-200 relative flex justify-center items-center">
+                                <i class="fa-solid fa-plane text-orange-400 absolute text-sm bg-slate-50 px-1 transform rotate-45"></i>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-2xl font-black text-blue-950">Chegada</p>
+                            <p class="text-xs text-slate-500 font-bold mt-0.5">GRU (São Paulo)</p>
+                            <p class="text-[10px] text-slate-400 mt-1">Brasil</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASSAGEIROS -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 transition-all hover:shadow-md">
+                    <h3 class="font-black text-blue-950 text-md border-b border-slate-100 pb-3 mb-4 flex items-center justify-between">
+                        <span>Passageiros & Assentos</span>
+                        <i class="fa-solid fa-users text-slate-400 text-sm"></i>
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center bg-slate-50 p-3 rounded-xl border border-slate-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-black text-sm flex items-center justify-center shadow-sm">D</div>
+                                <div>
+                                    <p class="font-bold text-sm text-slate-800">Dária</p>
+                                    <p class="text-[10px] font-medium text-slate-400">Loc: ABC123Z</p>
+                                </div>
+                            </div>
+                            <span class="font-black text-sm text-orange-600 bg-orange-50 border border-orange-100 px-2.5 py-1 rounded-lg">14A</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-50 p-3 rounded-xl border border-slate-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-black text-sm flex items-center justify-center shadow-sm">P</div>
+                                <div>
+                                    <p class="font-bold text-sm text-slate-800">Passageiro 2</p>
+                                    <p class="text-[10px] font-medium text-slate-400">Loc: ABC123Z</p>
+                                </div>
+                            </div>
+                            <span class="font-black text-sm text-orange-600 bg-orange-50 border border-orange-100 px-2.5 py-1 rounded-lg">14B</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-50 p-3 rounded-xl border border-slate-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-black text-sm flex items-center justify-center shadow-sm">P</div>
+                                <div>
+                                    <p class="font-bold text-sm text-slate-800">Passageiro 3</p>
+                                    <p class="text-[10px] font-medium text-slate-400">Loc: ABC123Z</p>
+                                </div>
+                            </div>
+                            <span class="font-black text-sm text-orange-600 bg-orange-50 border border-orange-100 px-2.5 py-1 rounded-lg">14C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: HOSPEDAGEM -->
+        <section id="hospedagem" class="scroll-mt-20">
+            <div class="flex items-center gap-2 mb-6">
+                <div class="bg-blue-900 text-white p-2.5 rounded-xl shadow-sm">
+                    <i class="fa-solid fa-bed text-lg"></i>
+                </div>
+                <h2 class="text-2xl font-black text-blue-950">Hospedagem</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- HOTEL 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between transition-all hover:shadow-md">
+                    <div>
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800&h=400" alt="Hotel Indigo LA" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                            <div class="absolute bottom-3 left-3 bg-blue-950/80 backdrop-blur-sm border border-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                                <i class="fa-solid fa-calendar-day mr-1.5 text-orange-400"></i> 08/08 a 14/08
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-black text-slate-800 leading-snug mb-2">Hotel Indigo Los Angeles Downtown</h3>
+                            <p class="text-sm text-slate-600 mb-4">Hotel moderno no coração de Downtown LA, próximo a diversas atrações.</p>
+                            
+                            <div class="flex items-start bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <i class="fa-solid fa-map-pin text-slate-400 mt-1 mr-2.5 shrink-0"></i>
+                                <span class="text-xs font-medium text-slate-700 leading-relaxed">899 Francisco St, Los Angeles, CA 90017</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="https://maps.google.com/?q=Hotel+Indigo+Los+Angeles+Downtown" target="_blank" rel="noreferrer" class="w-full inline-flex items-center justify-center gap-2 font-bold text-sm text-white bg-blue-900 hover:bg-blue-950 transition-colors py-3 px-4 rounded-xl shadow-sm">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Abrir no Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HOTEL 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between transition-all hover:shadow-md">
+                    <div>
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1695669341490-6da48de6c8a7?auto=format&fit=crop&q=80&w=800&h=400" alt="Hotel San Diego" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                            <div class="absolute bottom-3 left-3 bg-blue-950/80 backdrop-blur-sm border border-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                                <i class="fa-solid fa-calendar-day mr-1.5 text-orange-400"></i> 14/08 a 20/08
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-black text-slate-800 leading-snug mb-2">Hotel em San Diego <span class="text-orange-500 font-bold text-xs bg-orange-50 border border-orange-100 px-2 py-0.5 rounded ml-2 uppercase tracking-wide">A Definir</span></h3>
+                            <p class="text-sm text-slate-600 mb-4">Hospedagem para a segunda parte da viagem, aproveitando o clima de praia e tranquilidade.</p>
+                            
+                            <div class="flex items-start bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <i class="fa-solid fa-map-pin text-slate-400 mt-1 mr-2.5 shrink-0"></i>
+                                <span class="text-xs font-medium text-slate-700 leading-relaxed">San Diego, CA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="https://maps.google.com/?q=San+Diego,+CA" target="_blank" rel="noreferrer" class="w-full inline-flex items-center justify-center gap-2 font-bold text-sm text-white bg-blue-900 hover:bg-blue-950 transition-colors py-3 px-4 rounded-xl shadow-sm">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Abrir no Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CRONOGRAMA COMPLETO -->
+        <section id="roteiro" class="scroll-mt-20">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                <div class="flex items-center gap-2">
+                    <div class="bg-blue-900 text-white p-2.5 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-calendar-days text-lg"></i>
+                    </div>
+                    <h2 class="text-2xl font-black text-blue-950">Cronograma Diário</h2>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="expandAllDays()" class="text-xs font-bold bg-white text-slate-600 border border-slate-200 px-3 py-1.5 rounded-lg hover:bg-slate-50 transition-all shadow-sm">Expandir Tudo</button>
+                    <button onclick="collapseAllDays()" class="text-xs font-bold bg-white text-slate-600 border border-slate-200 px-3 py-1.5 rounded-lg hover:bg-slate-50 transition-all shadow-sm">Recolher Tudo</button>
+                </div>
+            </div>
+
+            <!-- ITINERARY GRID / ACCORDIONS -->
+            <div id="itinerary-accordion" class="space-y-4">
+                <!-- DINAMICAMENTE COMPILADO COMPLETO DO OBJETO ORIGINAL -->
+            </div>
+        </section>
+
+        <!-- SECTION: EXPLORAR ATRAÇÕES -->
+        <section id="explorar" class="scroll-mt-20">
+            <div class="flex items-center gap-2 mb-6">
+                <div class="bg-blue-900 text-white p-2.5 rounded-xl shadow-sm">
+                    <i class="fa-solid fa-compass text-lg"></i>
+                </div>
+                <h2 class="text-2xl font-black text-blue-950">Explorar Atrações</h2>
+            </div>
+
+            <!-- TABS CONTROLLER -->
+            <div class="flex border-b border-slate-200 mb-6 bg-white p-1 rounded-xl shadow-sm border">
+                <button id="btn-tab-lojas" onclick="switchExploreTab('lojas')" class="flex-1 flex justify-center items-center gap-2 py-3 text-sm font-black rounded-lg transition-all bg-blue-900 text-white shadow-sm">
+                    <i class="fa-solid fa-bag-shopping"></i> Lojas & Malls
+                </button>
+                <button id="btn-tab-parques" onclick="switchExploreTab('parques')" class="flex-1 flex justify-center items-center gap-2 py-3 text-sm font-black rounded-lg transition-all text-slate-500 hover:text-slate-800">
+                    <i class="fa-solid fa-tree"></i> Parques & Praias
+                </button>
+            </div>
+
+            <!-- LOJAS CONTENT -->
+            <div id="explore-lojas" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Carregado por Script -->
+            </div>
+
+            <!-- PARQUES CONTENT -->
+            <div id="explore-parques" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 hidden">
+                <!-- Carregado por Script -->
+            </div>
+        </section>
+
+        <!-- SECTION: INFORMAÇÕES ÚTEIS -->
+        <section id="info" class="scroll-mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- COL 1: CONTATOS -->
+            <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm">
+                <h3 class="text-xl font-black text-blue-950 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
+                    <i class="fa-solid fa-phone text-orange-500 text-base"></i> Contatos de Emergência
+                </h3>
+                <div class="space-y-4">
+                    <div class="bg-red-50/50 border border-red-100 p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-red-700 uppercase tracking-wide">Emergência Nacional (EUA)</p>
+                            <p class="text-3xl font-black text-red-600 mt-1">911</p>
+                            <p class="text-[11px] text-slate-500 font-medium mt-0.5">Polícia, Bombeiros e Ambulância</p>
+                        </div>
+                        <div class="bg-red-100 text-red-600 p-3 rounded-full shadow-sm">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl space-y-2">
+                        <p class="text-xs font-bold text-blue-900 uppercase tracking-wide">Seguro Viagem Internacional</p>
+                        <p class="text-sm text-slate-700 font-medium mt-2 flex justify-between">
+                            <span class="text-slate-400">Número da Apólice:</span> 
+                            <span class="font-bold text-slate-800">123456789</span>
+                        </p>
+                        <p class="text-sm text-slate-700 font-medium flex justify-between items-center">
+                            <span class="text-slate-400">Telefone Suporte:</span> 
+                            <span class="font-bold text-blue-900 bg-blue-50 px-2 py-0.5 rounded border border-blue-100 text-xs">+1 800 555 0199</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COL 2: DICAS & CHECKLIST -->
+            <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm">
+                <h3 class="text-xl font-black text-blue-950 mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
+                    <i class="fa-solid fa-square-check text-orange-500 text-base"></i> Checklist de Preparação
+                </h3>
+                <ul class="space-y-3.5">
+                    <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                        <i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-base shadow-sm"></i>
+                        <div>
+                            <p class="text-slate-800 font-bold leading-none">Passaporte e Visto Americano</p>
+                            <p class="text-xs text-slate-400 mt-1">Garantir validade e documentos físicos impressos.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                        <i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-base shadow-sm"></i>
+                        <div>
+                            <p class="text-slate-800 font-bold leading-none">Adaptador de Tomada Padrão EUA</p>
+                            <p class="text-xs text-slate-400 mt-1">Pinos chatos paralelos tipo A/B.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                        <i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-base shadow-sm"></i>
+                        <div>
+                            <p class="text-slate-800 font-bold leading-none">Cartão de Crédito Global</p>
+                            <p class="text-xs text-slate-400 mt-1">Contas Nomad / Wise com saldo em dólar configurado.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                        <i class="fa-solid fa-circle-check text-green-500 mt-0.5 text-base shadow-sm"></i>
+                        <div>
+                            <p class="text-slate-800 font-bold leading-none">Chip de Internet Internacional</p>
+                            <p class="text-xs text-slate-400 mt-1">eSIM ativado para cobertura contínua na costa oeste.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-blue-950 text-slate-400 py-8 px-6 text-center border-t border-blue-900 mt-12">
+        <p class="text-sm font-medium text-blue-200">Boa viagem, Dária! Aproveite a Califórnia ☀️🇺🇸</p>
+        <p class="text-xs text-slate-500 mt-2">&copy; 2026 Roteiro Interativo Califórnia - Desenvolvido com carinho.</p>
+    </footer>
+
+    <!-- INLINE SCRIPT COMPATÍVEL COM OS DADOS ORIGINAIS -->
+    <script>
+        const ITINERARY_DATA = [
+          {
+            dia: "08/08",
+            semana: "Sábado",
+            titulo: "Chegada em Los Angeles",
+            periodos: [
+              {
+                nome: "Noite",
+                atividades: [
+                  "Chegada no aeroporto LAX às 21:45h",
+                  "Retirada de bagagens e imigração",
+                  "Check-in no Hotel Indigo Los Angeles Downtown"
+                ],
+                mapLink: "https://maps.google.com/?q=Hotel+Indigo+Los+Angeles+Downtown"
+              }
+            ]
+          },
+          {
+            dia: "09/08",
+            semana: "Domingo",
+            titulo: "Santa Mônica e Venice Beach",
+            periodos: [
+              {
+                nome: "Manhã",
+                atividades: [
+                  "Passeio pelo Santa Monica Píer (Ponto final da Rota 66)",
+                  "Visita ao Pacific Park e Roda Gigante",
+                  "Aquário de Santa Monica"
+                ],
+                mapLink: "https://maps.google.com/?q=Santa+Monica+Pier"
+              },
+              {
+                nome: "Almoço",
+                atividades: [
+                  "Third Street Promenade (Lojas, músicos e artistas de rua)",
+                  "Santa Monica Place (Shopping de 3 andares)"
+                ]
+              },
+              {
+                nome: "Tarde",
+                atividades: [
+                  "Venice Beach - Ocean Front Walk (Boardwalk)",
+                  "Venice Beach Skate Park",
+                  "Caminhada pelos Venice Canals",
+                  "Passeio na Abbot Kinney Boulevard"
+                ],
+                mapLink: "https://maps.google.com/?q=Venice+Beach+Skatepark"
+              }
+            ]
+          },
+          {
+            dia: "10/08",
+            semana: "Segunda-feira",
+            titulo: "Hollywood e Observatório Griffith",
+            periodos: [
+              {
+                nome: "Manhã",
+                atividades: [
+                  "Calçada da Fama (Hollywood Walk of Fame)",
+                  "TCL Chinese Theatre e Dolby Theatre"
+                ],
+                mapLink: "https://maps.google.com/?q=Hollywood+Walk+of+Fame"
+              },
+              {
+                nome: "Tarde",
+                atividades: [
+                  "Vista do Letreiro de Hollywood (Hollywood Sign)",
+                  "Passeio pelo Griffith Park"
+                ]
+              },
+              {
+                nome: "Fim de Tarde / Noite",
+                atividades: [
+                  "Pôr do sol no Griffith Observatory",
+                  "Jantar na região de West Hollywood"
+                ],
+                mapLink: "https://maps.google.com/?q=Griffith+Observatory"
+              }
+            ]
+          },
+          {
+            dia: "11/08",
+            semana: "Terça-feira",
+            titulo: "Universal Studios Hollywood",
+            periodos: [
+              {
+                nome: "Dia Inteiro",
+                atividades: [
+                  "Parque Universal Studios (Studio Tour, Super Nintendo World, Harry Potter)",
+                  "Universal CityWalk (Lojas e restaurantes na saída)"
+                ],
+                mapLink: "https://maps.google.com/?q=Universal+Studios+Hollywood"
+              }
+            ]
+          },
+          {
+            dia: "12/08",
+            semana: "Quarta-feira",
+            titulo: "Beverly Hills e The Grove",
+            periodos: [
+              {
+                nome: "Manhã",
+                atividades: [
+                  "Letreiro de Beverly Hills (Beverly Hills Sign)",
+                  "Passeio pela Rodeo Drive (Lojas de grife)"
+                ],
+                mapLink: "https://maps.google.com/?q=Rodeo+Drive"
+              },
+              {
+                nome: "Tarde",
+                atividades: [
+                  "The Original Farmers Market (Almoço)",
+                  "Compras e passeio no The Grove",
+                  "Visita ao LACMA (Los Angeles County Museum of Art) - Urban Light"
+                ],
+                mapLink: "https://maps.google.com/?q=The+Grove+Los+Angeles"
+              }
+            ]
+          },
+          {
+            dia: "13/08",
+            semana: "Quinta-feira",
+            titulo: "Downtown LA",
+            periodos: [
+              {
+                nome: "Manhã",
+                atividades: [
+                  "Walt Disney Concert Hall",
+                  "The Broad (Museu de Arte Contemporânea)",
+                  "Grand Central Market (Almoço)"
+                ],
+                mapLink: "https://maps.google.com/?q=Grand+Central+Market"
+              },
+              {
+                nome: "Tarde",
+                atividades: [
+                  "Passeio por Little Tokyo",
+                  "Arts District"
+                ]
+              }
+            ]
+          },
+          {
+            dia: "14/08",
+            semana: "Sexta-feira",
+            titulo: "Viagem para San Diego",
+            periodos: [
+              {
+                nome: "Manhã",
+                atividades: [
+                  "Check-out no Hotel Indigo Los Angeles",
+                  "Viagem de carro pela costa rumo ao sul"
+                ]
+              },
+              {
+                nome: "Tarde",
+                atividades: [
+                  "Parada em La Jolla Cove (Observação de leões marinhos e praias)",
+                  "Check-in no Hotel em San Diego"
+                ],
+                mapLink: "https://maps.google.com/?q=La+Jolla+Cove"
+              }
+            ]
+          },
+          {
+            dia: "15/08",
+            semana: "Sábado",
+            titulo: "San Diego Zoo e Balboa Park",
+            periodos: [
+              {
+                nome: "Manhã",
+                atividades: [
+                  "San Diego Zoo (Um dos zoológicos mais famosos do mundo)"
+                ],
+                mapLink: "https://maps.google.com/?q=San+Diego+Zoo"
+              },
+              {
+                nome: "Tarde",
+                atividades: [
+                  "Passeio pela arquitetura do Balboa Park",
+                  "Jardim Botânico e museus locais"
+                ],
+                mapLink: "https://maps.google.com/?q=Balboa+Park"
+              }
+            ]
+          },
+          {
+            dia: "16/08",
+            semana: "Domingo",
+            titulo: "USS Midway e Gaslamp Quarter",
+            periodos: [
+              {
+                nome: "Manhã",
+                atividades: [
+                  "Visita ao porta-aviões USS Midway Museum",
+                  "Caminhada pela orla (Embarcadero)"
+                ],
+                mapLink: "https://maps.google.com/?q=USS+Midway+Museum"
+              },
+              {
+                nome: "Tarde / Noite",
+                atividades: [
+                  "Passeio e jantar no Gaslamp Quarter (Centro histórico vibrante de San Diego)"
+                ],
+                mapLink: "https://maps.google.com/?q=Gaslamp+Quarter"
+              }
+            ]
+          },
+          {
+            dia: "17/08",
+            semana: "Segunda-feira",
+            titulo: "Coronado Beach e Seaport Village",
+            periodos: [
+              {
+                nome: "Tarde",
+                atividades: [
+                  "Travessia de Ferry para Coronado (bacana e barato)",
+                  "Coronado Beach (areia clara e faixa larguíssima)",
+                  "Passeio pelo lobby e áreas comuns do icônico Hotel del Coronado",
+                  "Pôr do Sol espetacular em Coronado!"
+                ],
+                mapLink: "https://maps.app.goo.gl/wdQwWv5jQ2RtWgs76"
+              },
+              {
+                nome: "Noite",
+                atividades: [
+                  "Jantar no Seaport Village"
+                ],
+                mapLink: "https://maps.google.com/?q=Seaport+Village"
+              }
+            ]
+          },
+          {
+            dia: "18/08",
+            semana: "Terça-feira",
+            titulo: "SeaWorld e Compras em San Diego",
+            periodos: [
+              {
+                nome: "Dia Inteiro",
+                atividades: [
+                  "SeaWorld San Diego: Parque marinho com shows, montanhas-russas e atrações aquáticas."
+                ],
+                mapLink: "https://maps.app.goo.gl/gDxrwoayGTcRQrS19"
+              },
+              {
+                nome: "Tarde/Noite (Opção Compras)",
+                atividades: [
+                  "Las Americas Premium Outlets (20 min de Downtown)",
+                  "Fashion Valley Mall (Maior shopping da cidade)"
+                ],
+                mapLink: "https://maps.app.goo.gl/JUdUkRc1RMg2U70E9"
+              }
+            ]
+          },
+          {
+            dia: "19/08",
+            semana: "Quarta-feira",
+            titulo: "Despedida e Praias",
+            periodos: [
+              {
+                nome: "Livre",
+                atividades: [
+                  "Manhã livre para últimas compras ou passeios pelas praias locais (ex: Pacific Beach)",
+                  "Organização das malas e check-in do voo"
+                ]
+              }
+            ]
+          },
+          {
+            dia: "20/08",
+            semana: "Quinta-feira",
+            titulo: "Retorno ao Brasil",
+            periodos: [
+              {
+                nome: "Manhã",
+                atividades: [
+                  "Check-out no hotel",
+                  "Deslocamento para o Aeroporto Internacional de San Diego (SAN)",
+                  "Voo de volta às 09:32h"
+                ],
+                mapLink: "https://maps.google.com/?q=San+Diego+International+Airport"
+              }
+            ]
+          }
+        ];
+
+        const PLACES_DATA = {
+          lojas: [
+            { nome: "Third Street Promenade", local: "Los Angeles", desc: "Três ruas fechadas para pedestres com lojas bacanas, músicos e artistas de rua.", map: "https://maps.google.com/?q=Third+Street+Promenade" },
+            { nome: "Santa Monica Place", local: "Los Angeles", desc: "Shopping de três andares com diversas opções de varejo e alimentação.", map: "https://maps.google.com/?q=Santa+Monica+Place" },
+            { nome: "Abbot Kinney Boulevard", local: "Los Angeles", desc: "Shopping a céu aberto. Rua cheia de lojas, galerias de arte e cafés.", map: "https://maps.google.com/?q=Abbot+Kinney+Boulevard" },
+            { nome: "The Grove & Farmers Market", local: "Los Angeles", desc: "Complexo de compras charmoso ao ar livre junto de um mercado gastronômico histórico.", map: "https://maps.google.com/?q=The+Grove+Los+Angeles" },
+            { nome: "Las Americas Premium Outlets", local: "San Diego", desc: "Melhor para descontos. Mais de 125 lojas (Nike, Adidas, Calvin Klein, etc).", map: "https://maps.app.goo.gl/JUdUkRc1RMg2U70E9" },
+            { nome: "Fashion Valley Mall", local: "San Diego", desc: "Maior shopping da cidade. Aberto com cerca de 200 lojas (Gucci, Apple, Zara).", map: "https://maps.app.goo.gl/iFt4M9kG82VjbM" }
+          ],
+          parques: [
+            { nome: "Santa Monica Píer", local: "Los Angeles", desc: "Ponto final histórico da Rota 66, repleto de atrações clássicas.", map: "https://maps.google.com/?q=Santa+Monica+Pier" },
+            { nome: "Pacific Park", local: "Los Angeles", desc: "Parque de diversões no píer com roda gigante movida a energia solar.", map: "https://maps.google.com/?q=Pacific+Park" },
+            { nome: "Venice Beach & Skate Park", local: "Los Angeles", desc: "Praia icônica com o calçadão movimentado e uma das pistas de skate mais famosas do mundo.", map: "https://maps.google.com/?q=Venice+Beach" },
+            { nome: "Universal Studios Hollywood", local: "Los Angeles", desc: "Parque temático gigante com estúdios de cinema reais e atrações imersivas.", map: "https://maps.google.com/?q=Universal+Studios+Hollywood" },
+            { nome: "Coronado Beach & Hotel del Coronado", local: "San Diego", desc: "Uma das praias mais lindas dos EUA, areia clara e o icônico e imponente hotel.", map: "https://maps.google.com/?q=Coronado+Beach" },
+            { nome: "SeaWorld San Diego", local: "San Diego", desc: "Parque marinho com shows, montanhas-russas e atrações aquáticas.", map: "https://maps.app.goo.gl/gDxrwoayGTcRQrS19" },
+            { nome: "Balboa Park", local: "San Diego", desc: "Amplo parque cultural abrigando dezenas de museus, jardins deslumbrantes e o zoológico.", map: "https://maps.google.com/?q=Balboa+Park" }
+          ]
+        };
+
+        // RENDER ITINERARY (ACCORDIONS)
+        const itineraryContainer = document.getElementById('itinerary-accordion');
+        ITINERARY_DATA.forEach((item, index) => {
+            let periodsHtml = '';
+            item.periodos.forEach(periodo => {
+                let activitiesHtml = '';
+                periodo.atividades.forEach(ativ => {
+                    activitiesHtml += `<li class="text-slate-600 text-sm leading-relaxed mb-1.5 flex items-start gap-2">
+                        <span class="text-orange-500 font-bold">&#8226;</span> <span>${ativ}</span>
+                    </li>`;
+                });
+
+                let routeButton = periodo.mapLink ? `
+                    <a href="${periodo.mapLink}" target="_blank" class="inline-flex items-center gap-1.5 mt-3 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 transition-colors px-3 py-1.5 rounded-lg shadow-sm">
+                        <i class="fa-solid fa-map-location-dot"></i> Ver Rota no Mapa
+                    </a>
+                ` : '';
+
+                periodsHtml += `
+                    <div class="relative pl-6 timeline-item">
+                        <h5 class="font-black text-blue-900 text-sm flex items-center gap-1.5 mb-2">
+                            <i class="fa-regular fa-clock text-slate-400"></i> ${periodo.nome}
+                        </h5>
+                        <ul class="mb-3">${activitiesHtml}</ul>
+                        ${routeButton}
+                    </div>
+                `;
+            });
+
+            // Open the second day by default (09/08) as specified in original logic
+            const isOpen = item.dia === "09/08";
+
+            itineraryContainer.innerHTML += `
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden transition-all duration-300">
+                    <button onclick="toggleDay('day-${index}')" class="w-full px-6 py-4 flex justify-between items-center hover:bg-slate-50 transition-colors text-left">
+                        <div>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-xl font-black text-blue-900">${item.dia}</span>
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">${item.semana}</span>
+                            </div>
+                            <h4 class="text-slate-700 font-bold text-sm mt-0.5">${item.titulo}</h4>
+                        </div>
+                        <div id="icon-day-${index}" class="bg-blue-50 text-blue-600 p-2 rounded-full transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </div>
+                    </button>
+                    <div id="content-day-${index}" class="px-6 pb-6 pt-2 border-t border-slate-100 bg-slate-50/40 space-y-6 ${isOpen ? '' : 'hidden'}">
+                        <div class="relative border-l border-slate-200 ml-2 mt-4 space-y-6">${periodsHtml}</div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // RENDER EXPLORE ITEMS
+        function renderExplore() {
+            const lojasContainer = document.getElementById('explore-lojas');
+            const parquesContainer = document.getElementById('explore-parques');
+
+            PLACES_DATA.lojas.forEach(item => {
+                lojasContainer.innerHTML += `
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between transition-all hover:shadow-md">
+                        <div>
+                            <div class="flex justify-between items-start gap-2 mb-2">
+                                <h4 class="font-black text-blue-950 text-base leading-tight">${item.nome}</h4>
+                                <span class="text-[9px] font-black uppercase tracking-wider bg-slate-100 text-slate-500 px-2 py-0.5 rounded shrink-0">${item.local}</span>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">${item.desc}</p>
+                        </div>
+                        <a href="${item.map}" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold text-orange-600 hover:text-orange-700 transition-colors">
+                            <i class="fa-solid fa-location-dot"></i> Como chegar
+                        </a>
+                    </div>
+                `;
+            });
+
+            PLACES_DATA.parques.forEach(item => {
+                parquesContainer.innerHTML += `
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between transition-all hover:shadow-md">
+                        <div>
+                            <div class="flex justify-between items-start gap-2 mb-2">
+                                <h4 class="font-black text-blue-950 text-base leading-tight">${item.nome}</h4>
+                                <span class="text-[9px] font-black uppercase tracking-wider bg-slate-100 text-slate-500 px-2 py-0.5 rounded shrink-0">${item.local}</span>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">${item.desc}</p>
+                        </div>
+                        <a href="${item.map}" target="_blank" class="inline-flex items-center gap-1 text-xs font-bold text-orange-600 hover:text-orange-700 transition-colors">
+                            <i class="fa-solid fa-location-dot"></i> Como chegar
+                        </a>
+                    </div>
+                `;
+            });
+        }
+        renderExplore();
+
+        // INTERACTION SCRIPTS
+        function toggleDay(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            if(content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        function expandAllDays() {
+            ITINERARY_DATA.forEach((_, idx) => {
+                document.getElementById(`content-day-${idx}`).classList.remove('hidden');
+                document.getElementById(`icon-day-${idx}`).classList.add('rotate-180');
+            });
+        }
+
+        function collapseAllDays() {
+            ITINERARY_DATA.forEach((_, idx) => {
+                document.getElementById(`content-day-${idx}`).classList.add('hidden');
+                document.getElementById(`icon-day-${idx}`).classList.remove('rotate-180');
+            });
+        }
+
+        function switchExploreTab(tab) {
+            const lojasBtn = document.getElementById('btn-tab-lojas');
+            const parquesBtn = document.getElementById('btn-tab-parques');
+            const lojasCont = document.getElementById('explore-lojas');
+            const parquesCont = document.getElementById('explore-parques');
+
+            if(tab === 'lojas') {
+                lojasBtn.className = "flex-1 flex justify-center items-center gap-2 py-3 text-sm font-black rounded-lg transition-all bg-blue-900 text-white shadow-sm";
+                parquesBtn.className = "flex-1 flex justify-center items-center gap-2 py-3 text-sm font-black rounded-lg transition-all text-slate-500 hover:text-slate-800";
+                lojasCont.classList.remove('hidden');
+                parquesCont.classList.add('hidden');
+            } else {
+                parquesBtn.className = "flex-1 flex justify-center items-center gap-2 py-3 text-sm font-black rounded-lg transition-all bg-blue-900 text-white shadow-sm";
+                lojasBtn.className = "flex-1 flex justify-center items-center gap-2 py-3 text-sm font-black rounded-lg transition-all text-slate-500 hover:text-slate-800";
+                parquesCont.classList.remove('hidden');
+                lojasCont.classList.add('hidden');
+            }
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // COUNTDOWN TIMER
+        function updateCountdown() {
+            const targetDate = new Date('2026-08-08T21:45:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown-box').innerHTML = "<span class='text-orange-400 font-bold text-sm uppercase tracking-wide px-4'>✈️ Viagem em andamento ou realizada!</span>";
+                return;
+            }
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = d;
+            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
