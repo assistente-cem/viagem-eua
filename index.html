@@ -127,7 +127,7 @@
                 <p class="text-xs text-slate-400 font-medium">Selecione o passageiro para acessar check-in e rastreadores</p>
             </div>
 
-            <!-- CONTAINER DINÂMICO DE ACORDEÕES DOS PASSAGEIROS (Efeito Sanfona) -->
+            <!-- CONTAINER DINÂMICO DE ACORDEÕES DOS PASSAGEIROS -->
             <div class="space-y-3" id="passenger-accordions-container"></div>
 
             <!-- INFO BAGAGEM -->
@@ -268,27 +268,24 @@
                         <span class="font-mono font-bold text-slate-700 uppercase">12A / <span class="text-amber-500">G23</span></span>
                     </div>
                     
-                    <!-- LOCALIZADOR AMPLIADO COM BOTÕES DE AÇÕES AO LADO -->
+                    <!-- LOCALIZADOR AMPLIADO SOLICITADO -->
                     <div class="col-span-2 border-t border-slate-100 pt-3">
                         <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider mb-1">Localizador</span>
-                        <div class="flex flex-wrap items-center justify-between gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100">
                             <div class="flex items-center gap-2">
                                 <span id="bp-locator" class="font-mono font-black text-usred text-3xl tracking-widest">ZK2MVS</span>
                                 <button id="bp-copy-btn" onclick="copyLocatorFromModal()" class="text-slate-400 hover:text-usblue active:scale-90 p-2 bg-white rounded-lg border border-slate-200 shadow-3xs transition-transform">
                                     <i class="fa-regular fa-copy text-sm"></i>
                                 </button>
                             </div>
-                            <a id="bp-track-btn" href="#" target="_blank" class="bg-slate-900 hover:bg-slate-800 text-white font-bold text-[11px] px-3.5 py-2.5 rounded-lg flex items-center gap-1 shadow-3xs transition-all active:scale-95">
-                                <i class="fa-solid fa-satellite-dish"></i> Rastrear Voo
-                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Botão de Check-in Oficial Acoplado no Cartão de Embarque -->
+                <!-- Botão de Ação Único de Check-in Oficial -->
                 <div class="pt-2">
-                    <a id="bp-checkin-btn" href="#" target="_blank" class="w-full bg-usblue hover:bg-blue-700 text-white font-extrabold text-sm py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 duration-150">
-                        <i class="fa-solid fa-square-check"></i> Realizar Check-in Oficial
+                    <a id="bp-checkin-btn" href="#" target="_blank" class="bg-usblue hover:bg-blue-700 text-white font-extrabold text-xs py-3.5 rounded-xl flex items-center justify-center gap-1.5 shadow-md transition-all active:scale-95 duration-150 text-center">
+                        <i class="fa-solid fa-square-check"></i> Check-in Oficial
                     </a>
                 </div>
             </div>
@@ -337,7 +334,6 @@
     </nav>
 
     <script>
-        // BANCO DE DADOS INTEGRADO E UNIFICADO
         const PASSENGERS_DATA = [
             {
                 id: 0,
@@ -434,7 +430,6 @@
             { nome: "Hilton Garden Inn LAX Los Angeles Airport", checkIn: "19/08/2026", checkOut: "20/08/2026", end: "5249 W Century Blvd, Los Angeles, CA 90045", img: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&q=80&w=600&h=300" }
         ];
 
-        // Roteiro Diário - Bullet points com espaçamento vertical estendido
         const ITINERARY_DATA = [
             { 
                 dia: "08/08", 
@@ -485,8 +480,8 @@
                 mapsUrl: "https://maps.app.goo.gl/At2auxxHM5mULFN86",
                 mapsUrlMetro: "https://maps.app.goo.gl/LGOZDNwrx7NRq6jC6",
                 periodos: [
-                    { nome: "Divisão do Parque", atividades: ["O parque divide-se em duas áreas principais conectadas por escadas rolantes giants: o Upper Lot (superior) e o Lower Lot (inferior)."] },
-                    { nome: "Principais Áreas e Atrações", atividades: ["Super Nintendo World™: Atração Mario Kart™: Bowser's Challenge com óculos de realidade aumentada.", "The Wizarding World of Harry Potter™: Simulador de voo tecnológico Harry Potter and the Forbidden Journey dentro do castelo de Hogwarts.", "Studio Tour: Passeio tradicional de bonde por cenários reais e ativos de produções de Hollywood com efeitos especiais ao vivo.", "Jurassic World - The Ride: Expedição aquática no Lower Lot com robôs de dinossauros e uma grande queda d'água.", "Minion Land & Springfield: Áreas familiares com atrações dos Minions e o simulador dos Simpsons."] },
+                    { nome: "Divisão do Parque", atividades: ["O parque divide-se em duas áreas principais conectadas por escadas rolantes gigantes: o Upper Lot (superior) e o Lower Lot (inferior)."] },
+                    { nome: "Principais Áreas e Atrações", atividades: ["Super Nintendo World™: Atração Mario Kart™: Bowser's Challenge com óculos de realidade acrobatas.", "The Wizarding World of Harry Potter™: Simulador de voo tecnológico Harry Potter and the Forbidden Journey dentro do castelo de Hogwarts.", "Studio Tour: Passeio tradicional de bonde por cenários reais e ativos de produções de Hollywood com efeitos especiais ao vivo.", "Jurassic World - The Ride: Expedição aquática no Lower Lot com robôs de dinossauros e uma grande queda d'água.", "Minion Land & Springfield: Áreas familiares com atrações dos Minions e o simulador dos Simpsons."] },
                     { nome: "Como Chegar (Via Metrô de Downtown LA)", atividades: ["1. Vá até a Union Station.", "2. Compre o TAP Card e embarque na Linha B (Vermelha) sentido North Hollywood.", "3. Desça na estação Universal City/Studio City (cerca de 13 paradas, 35 a 45 minutos de trajeto).", "4. Atravesse a rua/passarela e pegue o shuttle gratuito da Universal (ônibus elétrico a cada 5 minutos direto para a entrada)."] },
                     { nome: "Horários", atividades: ["Universal Studios Hollywood: 09:00 - 21:00 (Acesso antecipado ao Super Nintendo World requer ingresso separado).", "Universal CityWalk: 11:00 - 22:00."] }
                 ]
@@ -514,7 +509,7 @@
                 temp: "23°C", 
                 mapsUrl: "https://maps.app.goo.gl/BwaQxUNb6baZHkkR6",
                 periodos: [
-                    { nome: "Malibu (Manhã e Tarde)", atividades: ["Malibu Pier & Malibu Farm (23000 Pacific Coast Hwy): Píer histórico de 1905 com restaurante orgânico e de comida fresca de frente para o mar.", "Surfrider Beach (23050 Pacific Coast Hwy): Point histórico de surfe ao lado do píer.", "Zuma Beach (30000 Pacific Coast Hwy): Praia curta, plana e com excelente estrutura de salva-vidas.", "Praia El Matador (32350 Pacific Coast Hwy): Altamente fotogênica com falésias e arcos de pedra. Não tem infraestrutura de quiosques, leve água e lanche. Pôr do sol imperdível.", "Point Dume (Cliffside Dr): Reserva natural com vista para as falésias, ideal para avistar leões-marinhos e baleias.", "The Getty Villa (17985 Pacific Coast Hwy): Réplica de uma magnífica vila romana com coleção de arte e antiguidades. Entrada gratuita, mas requer agendamento prévio obrigatório pelo site."] },
+                    { nome: "Malibu (Manhã e Tarde)", atividades: ["Malibu Pier & Malibu Farm (23000 Pacific Coast Hwy): Píer histórico de 1905 com restaurante orgânico e de comida fresca de frente para o mar.", "Surfrider Beach (23050 Pacific Coast Hwy): Point histórico de surfe ao lado do píer.", "Zuma Beach (30000 Pacific Coast Hwy): Praia extensa, plana e com excelente estrutura de salva-vidas.", "Praia El Matador (32350 Pacific Coast Hwy): Altamente fotogênica com falésias e arcos de pedra. Não tem infraestrutura de quiosques, leve água e lanche. Pôr do sol imperdível.", "Point Dume (Cliffside Dr): Reserva natural com vista para as falésias, ideal para avistar leões-marinhos e baleias.", "The Getty Villa (17985 Pacific Coast Hwy): Réplica de uma magnífica vila romana com coleção de arte e antiguidades. Entrada gratuita, mas requer agendamento prévio obrigatório pelo site."] },
                     { nome: "Guia de Compras e Outlets", atividades: ["Se o tempo for curto e preferir centros de compras dentro da cidade, as opções recomendadas são: The Grove (perto de Beverly Hills), Santa Monica Place (perto do píer) e o fechado/climatizado Beverly Center. Para descontos massivos em grandes marcas, utilize os outlets dedicados (Camarillo, Citadel ou Ontario Mills)."] }
                 ]
             },
@@ -545,7 +540,7 @@
                     { nome: "Estratégia do Dia", atividades: ["Nota Histórica: A Disneyland California é o parque da Disney original, o primeiro e único construído e acompanhado de perto pelo próprio Walt Disney, mantendo um clima nostálgico e mágico.", "Estratégia: Chegue bem cedo e vá na contramão da maioria dos visitantes. Evite o impulso de ir direto para a área de Star Wars logo cedo (onde as filas da Rise of the Resistance costumam acumular fãs de manhã); deixe a área de Star Wars para o meio da tarde.", "Início ideal: Comece pela Tomorrowland para evitar a grande fila da Space Mountain. Se o tempo for curto, faça um desvio rápido até a Matterhorn na Fantasyland logo após a Space Mountain para eliminar duas grandes filas logo cedo. Faça uma pausa no meio da tarde para curtir as lojas e paradas da Main Street."] },
                     { nome: "Tomorrowland & Fantasyland", atividades: ["Tomorrowland: Space Mountain, Buzz Lightyear Astro Blasters, Finding Nemo Submarine Voyage, Star Tours.", "Fantasyland: Matterhorn Bobsleds, Walk Through Sleeping Beauty Castle, It's a Small World, Bluey's Best Day Ever!, Alice in Wonderland, Snow White's Enchanted Wish, Peter Pan's Flight, Pinocchio's Daring Journey, Mad Tea Party, Storytelling Royal Theatre, King Arthur Carrousel, Dumbo the Flying Elephant."] },
                     { nome: "Mickey's Toontown & Frontierland", atividades: ["Mickey's Toontown: Mickey and Minnie's Runaway Railway, Mickey's House, Minnie's House, Chip 'n Dale's Gadget Coaster.", "Frontierland: Big Thunder Mountain."] },
-                    { nome: "Star Wars: Galaxy's Edge & Bayou Country", activities: ["Star Wars: Galaxy's Edge: Star Wars: Rise of the Resistance, Millennium Falcon: Smugglers Run.", "Bayou Country: Tiana's Bayou Adventure."] },
+                    { nome: "Star Wars: Galaxy's Edge & Bayou Country", atividades: ["Star Wars: Galaxy's Edge: Star Wars: Rise of the Resistance, Millennium Falcon: Smugglers Run.", "Bayou Country: Tiana's Bayou Adventure."] },
                     { nome: "New Orleans Square, Adventureland & Main Street", atividades: ["New Orleans Square: Pirates of the Caribbean, Haunted Mansion.", "Adventureland: Indiana Jones Adventure.", "Main Street USA: Emporium, Show Fantasmic (à noite)."] }
                 ]
             },
@@ -593,7 +588,7 @@
                 dia: "19/08", 
                 dateObj: "2026-08-19", 
                 semana: "Qua", 
-                titulo: "Retorno estratégico para LAX", 
+                titulo: "Retorno strategicamente planejado para LAX", 
                 weatherIcon: "fa-sun text-amber-500", 
                 temp: "27°C", 
                 periodos: [
@@ -615,57 +610,155 @@
 
         const PLACES_DATA = {
             atracoes: [
-                { dia: "09/08", nome: "Píer de Santa Mônica", end: "200 Santa Monica Pier, Santa Monica, CA 90401", desc: "O ponto final da histórica Rota 66." },
-                { dia: "09/08", nome: "Pacific Park", end: "380 Santa Monica Pier, Santa Monica, CA 90401", desc: "Roda gigante movida a energia solar e uma montanha-russa à moda antiga." },
-                { dia: "09/08", nome: "Aquário de Santa Monica", end: "1600 Ocean Front Walk, Santa Monica, CA 90401", desc: "Aquário interativo localizado aos pés do famoso píer." },
-                { dia: "09/08", nome: "Venice Beach Boardwalk", end: "Ocean Front Walk, Venice, CA 90291", desc: "Vibrante e pitoresco calçadão à beira-mar repleto de cultura." },
-                { dia: "09/08", nome: "Venice Beach Skate Park", end: "1800 Ocean Front Walk, Venice, CA 90291", desc: "Uma das pistas de skate mais famosas e fotografadas do mundo." },
-                { dia: "09/08", nome: "Canais de Venice", end: "Venice Canals, Venice, CA 90291", desc: "Bairro histórico residencial inspirado nos românticos canais de Veneza." },
-                { dia: "10/08", nome: "Calçada da Fama", end: "Hollywood Blvd & Vine St, Los Angeles, CA 90028", desc: "Caminhada ao longo das estrelas que celebram os ícones de Hollywood." },
-                { dia: "10/08", nome: "Centro de Visitantes da Big Bus", end: "6763 Hollywood Boulevard, Los Angeles, CA 90028", desc: "Ponto de partida ideal e local para a troca de vouchers digitais ou impressos." },
-                { dia: "10/08", nome: "Beverly Gardens Park", end: "9385 Santa Monica Blvd, Beverly Hills, CA 90210", desc: "Lindo parque urbano linear em Beverly Hills com o icônico letreiro da cidade." },
-                { dia: "10/08", nome: "LACMA Museum", end: "5905 Wilshire Blvd, Los Angeles, CA 90036", desc: "Museu gigante com mais de 140 mil obras de Picasso, Paul Klee, Jasper Johns, etc. Segunda-feira: 11h às 18h." },
-                { dia: "10/08", nome: "Academy Museum (Museu do Oscar)", end: "6067 Wilshire Blvd, Los Angeles, CA 90036", desc: "O maior e mais interativo museu dedicado ao cinema. Das 10h às 18h (fechado às terças)." },
-                { dia: "11/08", nome: "Universal Studios Hollywood", end: "100 Universal City Plaza, Universal City, CA 91608", desc: "Famoso parque com Super Nintendo World, Wizarding World of Harry Potter e Studio Tour." },
-                { dia: "12/08", nome: "Warner Bros. Studio Tour", end: "3400 Warner Blvd, Burbank, CA 91505", desc: "Passeio guiado de 3h30 pelos backlots reais e o clássico Stage 48 (Friends/Harry Potter)." },
-                { dia: "12/08", nome: "Getty Center", end: "1200 Getty Center Dr, Los Angeles, CA 90049", desc: "Museu renomado com arquitetura e jardins espetaculares, entrada e bondinho gratuitos." },
-                { dia: "12/08", nome: "Observatório Griffith", end: "2800 E Observatory Rd, Los Angeles, CA 90027", desc: "Localizado no alto do Monte Hollywood, excelente para exibições de astronomia e telescópios." },
-                { dia: "13/08", nome: "Píer de Malibu", end: "23000 Pacific Coast Hwy, Malibu, CA 90265", desc: "Píer histórico de 1905 com comida orgânica do Malibu Farm à beira-mar." },
-                { dia: "13/08", nome: "Praia de Surfrider", end: "23050 Pacific Coast Hwy, Malibu, CA 90265", desc: "Point clássico de surfe localizado ao lado do píer de Malibu." },
-                { dia: "13/08", nome: "Praia de Zuma", end: "30000 Pacific Coast Hwy, Malibu, CA 90265", desc: "Praia extensa e plana com excelente estrutura de salva-vidas." },
-                { dia: "13/08", nome: "Praia El Matador", end: "32350 Pacific Coast Hwy, Malibu, CA 90265", desc: "Altamente fotogênica com falésias e arcos de pedra. Sem quiosques, leve seu lanche." },
-                { dia: "13/08", nome: "The Getty Villa", end: "17985 Pacific Coast Hwy, Pacific Palisades, CA 90272", desc: "Réplica de vila romana com coleção de arte clássica. Entrada gratuita, agendamento obrigatório." },
-                { dia: "13/08", nome: "Reserva Natural Point Dume", end: "Cliffside Dr, Malibu, CA 90265", desc: "Mirante natural para observação de leões-marinhos e baleias cinzetas." },
-                { dia: "14/08", nome: "Disney California Adventure", end: "1313 Disneyland Dr, Anaheim, CA 92802", desc: "Parque focado em adrenalina e heróis com as áreas Avengers Campus e Cars Land." },
-                { dia: "15/08", nome: "Disneyland Park California", end: "1313 Disneyland Dr, Anaheim, CA 92802", desc: "O parque original, o primeiro e único construído e acompanhado por Walt Disney." },
-                { dia: "16/08", nome: "Balboa Park", end: "1549 El Prado, San Diego, CA 92101", desc: "Inaugurado em 1868, conta com mais de 15 museus, teatros e jardins maravilhosos." },
-                { dia: "16/08", nome: "San Diego Zoo", end: "2920 Zoo Dr, San Diego, CA 92101", desc: "Referência mundial com mais de 4 mil animais e programas de conservação ambiental." },
-                { dia: "17/08", nome: "USS Midway Museum", end: "910 N Harbor Dr, San Diego, CA 92101", desc: "Porta-aviões militar real transformado em museu histórico com mais de 60 exibições." },
-                { dia: "17/08", nome: "La Jolla Cove", end: "1100 Coast Blvd, La Jolla, CA 2037", desc: "Passeio pela orla marítima ideal para avistar de perto leões-marinhos nas rochas." },
-                { dia: "17/08", nome: "Ponte San Diego-Coronado", end: "CA-75, San Diego, CA 92118", desc: "Gigantesca e cênica ponte que faz a travessia para a elegante Ilha do Coronado." },
-                { dia: "17/08", nome: "Praia de Coronado", end: "Ocean Blvd, Coronado, CA 92118", desc: "Praia icônica com faixa de areia larga e clara com o Hotel del Coronado ao fundo." },
-                { dia: "17/08", nome: "Hotel del Coronado", end: "1500 Orange Ave, Coronado, CA 92118", desc: "Histórico hotel de madeira branca onde visitantes podem explorar o lobby clássico." },
-                { dia: "18/08", nome: "SeaWorld San Diego", end: "500 SeaWorld Drive, San Diego, CA 92109", desc: "Parque marinho clássico de classe mundial com shows, montanhas-russas e exibições." }
+                { dia: "09/08", nome: "Píer de Santa Mônica", end: "200 Santa Monica Pier, Santa Monica, CA 90401", desc: "O ponto final da histórica Rota 66.", mapUrl: "https://maps.app.goo.gl/o8jagXTCQsMQYQjC8" },
+                { dia: "09/08", nome: "Pacific Park", end: "380 Santa Monica Pier, Santa Monica, CA 90401", desc: "Roda gigante movida a energia solar e uma montanha-russa à moda antiga.", mapUrl: "https://maps.app.goo.gl/o8jagXTCQsMQYQjC8" },
+                { dia: "09/08", nome: "Aquário de Santa Monica", end: "1600 Ocean Front Walk, Santa Monica, CA 90401", desc: "Aquário interativo localizado aos pés do famoso píer.", mapUrl: "https://maps.app.goo.gl/o8jagXTCQsMQYQjC8" },
+                { dia: "09/08", nome: "Venice Beach Boardwalk", end: "Ocean Front Walk, Venice, CA 90291", desc: "Vibrante e pitoresco calçadão à beira-mar repleto de cultura.", mapUrl: "https://maps.app.goo.gl/o8jagXTCQsMQYQjC8" },
+                { dia: "09/08", nome: "Venice Beach Skate Park", end: "1800 Ocean Front Walk, Venice, CA 90291", desc: "Uma das pistas de skate mais famosas e fotografadas do mundo.", mapUrl: "https://maps.app.goo.gl/o8jagXTCQsMQYQjC8" },
+                { dia: "09/08", nome: "Canais de Venice", end: "Venice Canals, Venice, CA 90291", desc: "Bairro histórico residencial inspirado nos românticos canais de Veneza.", mapUrl: "https://maps.app.goo.gl/o8jagXTCQsMQYQjC8" },
+                { dia: "10/08", nome: "Calçada da Fama", end: "Hollywood Blvd & Vine St, Los Angeles, CA 90028", desc: "Caminhada ao longo das estrelas que celebram os ícones de Hollywood.", mapUrl: "https://maps.app.goo.gl/V8kyy2U9YAXNHL836" },
+                { dia: "10/08", nome: "Centro de Visitantes da Big Bus", end: "6763 Hollywood Boulevard, Los Angeles, CA 90028", desc: "Ponto de partida ideal e local para a troca de vouchers digitais ou impressos.", mapUrl: "https://maps.app.goo.gl/V8kyy2U9YAXNHL836" },
+                { dia: "10/08", nome: "Beverly Gardens Park", end: "9385 Santa Monica Blvd, Beverly Hills, CA 90210", desc: "Lindo parque urbano linear em Beverly Hills com o icônico letreiro da cidade.", mapUrl: "https://maps.app.goo.gl/V8kyy2U9YAXNHL836" },
+                { dia: "10/08", nome: "LACMA Museum", end: "5905 Wilshire Blvd, Los Angeles, CA 90036", desc: "Museu gigante com mais de 140 mil obras de Picasso, Paul Klee, Jasper Johns, etc. Segunda-feira: 11h às 18h.", mapUrl: "https://maps.app.goo.gl/V8kyy2U9YAXNHL836" },
+                { dia: "10/08", nome: "Academy Museum (Museu do Oscar)", end: "6067 Wilshire Blvd, Los Angeles, CA 90036", desc: "O maior e mais interativo museu dedicado ao cinema. Das 10h às 18h (fechado às terças).", mapUrl: "https://maps.app.goo.gl/V8kyy2U9YAXNHL836" },
+                { dia: "11/08", nome: "Universal Studios Hollywood", end: "100 Universal City Plaza, Universal City, CA 91608", desc: "Famoso parque com Super Nintendo World, Wizarding World of Harry Potter e Studio Tour.", mapUrl: "https://maps.app.goo.gl/At2auxxHM5mULFN86" },
+                { dia: "12/08", nome: "Warner Bros. Studio Tour", end: "3400 Warner Blvd, Burbank, CA 91505", desc: "Passeio guiado de 3h30 pelos backlots reais e o clássico Stage 48 (Friends/Harry Potter).", mapUrl: "https://maps.app.goo.gl/YX5ntf9Bajh8GRp39" },
+                { dia: "12/08", nome: "Getty Center", end: "1200 Getty Center Dr, Los Angeles, CA 90049", desc: "Museu renomado com arquitetura e jardins espetaculares, entrada e bondinho gratuitos.", mapUrl: "https://maps.app.goo.gl/YX5ntf9Bajh8GRp39" },
+                { dia: "12/08", nome: "Observatório Griffith", end: "2800 E Observatory Rd, Los Angeles, CA 90027", desc: "Localizado no alto do Monte Hollywood, excelente para exibições de astronomia e telescópios.", mapUrl: "https://maps.app.goo.gl/YX5ntf9Bajh8GRp39" },
+                { dia: "13/08", nome: "Píer de Malibu", end: "23000 Pacific Coast Hwy, Malibu, CA 90265", desc: "Píer histórico de 1905 com comida orgânica do Malibu Farm à beira-mar.", mapUrl: "https://maps.app.goo.gl/BwaQxUNb6baZHkkR6" },
+                { dia: "13/08", nome: "Praia de Surfrider", end: "23050 Pacific Coast Hwy, Malibu, CA 90265", desc: "Point clássico de surfe localizado ao lado do píer de Malibu.", mapUrl: "https://maps.app.goo.gl/BwaQxUNb6baZHkkR6" },
+                { dia: "13/08", nome: "Praia de Zuma", end: "30000 Pacific Coast Hwy, Malibu, CA 90265", desc: "Praia extensa e plana com excelente estrutura de salva-vidas.", mapUrl: "https://maps.app.goo.gl/BwaQxUNb6baZHkkR6" },
+                { dia: "13/08", nome: "Praia El Matador", end: "32350 Pacific Coast Hwy, Malibu, CA 90265", desc: "Altamente fotogênica com falésias e arcos de pedra. Sem quiosques, leve seu lanche.", mapUrl: "https://maps.app.goo.gl/BwaQxUNb6baZHkkR6" },
+                { dia: "13/08", nome: "The Getty Villa", end: "17985 Pacific Coast Hwy, Pacific Palisades, CA 90272", desc: "Réplica de vila romana com coleção de arte clássica. Entrada gratuita, agendamento obrigatório.", mapUrl: "https://maps.app.goo.gl/BwaQxUNb6baZHkkR6" },
+                { dia: "13/08", nome: "Reserva Natural Point Dume", end: "Cliffside Dr, Malibu, CA 90265", desc: "Mirante natural para observação de leões-marinhos e baleias cinzetas.", mapUrl: "https://maps.app.goo.gl/BwaQxUNb6baZHkkR6" },
+                { dia: "14/08", nome: "Disney California Adventure", end: "1313 Disneyland Dr, Anaheim, CA 92802", desc: "Parque focado em adrenalina e heróis com as áreas Avengers Campus e Cars Land.", mapUrl: "" },
+                { dia: "15/08", nome: "Disneyland Park California", end: "1313 Disneyland Dr, Anaheim, CA 92802", desc: "O parque original, o primeiro e único construído e acompanhado por Walt Disney.", mapUrl: "" },
+                { dia: "16/08", nome: "Balboa Park", end: "1549 El Prado, San Diego, CA 92101", desc: "Inaugurado em 1868, conta com mais de 15 museus, teatros e jardins maravilhosos.", mapUrl: "https://maps.app.goo.gl/5B5WAqTVB7qGedMZA" },
+                { dia: "16/08", nome: "San Diego Zoo", end: "2920 Zoo Dr, San Diego, CA 92101", desc: "Referência mundial com mais de 4 mil animais e programas de conservação ambiental.", mapUrl: "https://maps.app.goo.gl/5B5WAqTVB7qGedMZA" },
+                { dia: "17/08", nome: "USS Midway Museum", end: "910 N Harbor Dr, San Diego, CA 92101", desc: "Porta-aviões militar real transformado em museu histórico com mais de 60 exibições.", mapUrl: "https://maps.app.goo.gl/wdQwWv5jQ2RtWgs76" },
+                { dia: "17/08", nome: "La Jolla Cove", end: "1100 Coast Blvd, La Jolla, CA 2037", desc: "Passeio pela orla marítima ideal para avistar de perto leões-marinhos nas rochas.", mapUrl: "https://maps.app.goo.gl/wdQwWv5jQ2RtWgs76" },
+                { dia: "17/08", nome: "Ponte San Diego-Coronado", end: "CA-75, San Diego, CA 92118", desc: "Gigantesca e cênica ponte que faz a travessia para a elegante Ilha do Coronado.", mapUrl: "https://maps.app.goo.gl/wdQwWv5jQ2RtWgs76" },
+                { dia: "17/08", nome: "Praia de Coronado", end: "Ocean Blvd, Coronado, CA 92118", desc: "Praia icônica com faixa de areia larga e clara com o Hotel del Coronado ao fundo.", mapUrl: "https://maps.app.goo.gl/wdQwWv5jQ2RtWgs76" },
+                { dia: "17/08", nome: "Hotel del Coronado", end: "1500 Orange Ave, Coronado, CA 92118", desc: "Histórico hotel de madeira branca onde visitantes podem explorar o lobby clássico.", mapUrl: "https://maps.app.goo.gl/wdQwWv5jQ2RtWgs76" },
+                { dia: "18/08", nome: "SeaWorld San Diego", end: "500 SeaWorld Drive, San Diego, CA 92109", desc: "Parque marinho clássico de classe mundial com shows, montanhas-russas e exibições.", mapUrl: "https://maps.app.goo.gl/gDxrwoayGTcRQrS19" }
             ],
             compras: [
-                { dia: "09/08", nome: "Third Street Promenade", end: "1351 3rd Street Promenade, Santa Monica, CA 90401", desc: "Conjunto de três ruas que formam um calçadão exclusivo para pedestres, repleto de lojas, músicos e artistas de rua." },
-                { dia: "09/08", nome: "Santa Monica Place", end: "395 Santa Monica Place, Santa Monica, CA 90401", desc: "Um shopping de três andares perto do píer de Santa Mônica, oferecendo excelentes lojas e conveniência integrada." },
-                { dia: "09/08", nome: "Abbot Kinney Boulevard", end: "Abbot Kinney Blvd, Venice, CA 90291", desc: "Um shopping a céu aberto. Trecho repleto de lojas, galerias de arte, bares de vinho, cafés orgânicos e restaurantes para um passeio charmoso." },
-                { dia: "10/08", nome: "The Grove Company", end: "189 The Grove Dr, Los Angeles, CA 90036", desc: "The Grove (perto de Beverly Hills). Shopping aberto, charmoso, altamente dinâmico e agradável. Excelente alternativa dentro da cidade." },
-                { dia: "10/08", nome: "Rodeo Drive (Beverly Hills)", end: "Rodeo Dr, Beverly Hills, CA 90210", desc: "Rua de compras de luxo icônica em Beverly Hills." },
-                { dia: "12/08", nome: "Loja do estúdio Warner Bros.", end: "3400 Warner Blvd, Burbank, CA 91505", desc: "Loja do estúdio aberta das 8h30 às 19h00 com produtos oficiais das séries e heróis da marca." },
-                { dia: "13/08", nome: "Beverly Center (Shopping)", end: "8500 Beverly Blvd, Los Angeles, CA 90048", desc: "Shopping fechado/climatizado no centro urbano, excelente para compras rápidas e confortáveis." },
-                { dia: "13/08", nome: "Camarillo Premium Outlets", end: "740 E Ventura Blvd, Camarillo, CA 93010", desc: "O mais completo. Localizado na cidade de Camarillo, a cerca de 50 minutos a noroeste de LA pela rodovia 101. É o maior outlet ao ar livre da região com quase 200 lojas.", marcas: "Armani, J.Crew, Timberland, Calvin Klein, Diesel, Kate Spade, Michael Kors, Polo Ralph Lauren, Tommy Hilfiger, Coach, Tory Burch, Nike." },
-                { dia: "13/08", nome: "Citadel Outlets", end: "100 Citadel Dr, Commerce, CA 90040", desc: "O mais perto do centro. Em Commerce, a caminho do aeroporto LAX e perto de Downtown LA. Possui mais de 130 lojas. Shuttle gratuito (Citadel Express - Linha 600) saindo da Olympic Blvd & Figueroa St. Peça o Savings Card ou Savings Passport na chegada.", marcas: "Nike, Coach, Kate Spade, Michael Kors, Levi's, lululemon, The North Face, Tory Burch, Vuori, Adidas, Puma, GAP, Calvin Klein, Guess, Lacoste, Disney Outlet." },
-                { dia: "13/08", nome: "Ontario Mills Outlet", end: "1 Mills Cir, Ontario, CA 91764", desc: "O maior da Califórnia. Em Ontario, a cerca de 1 hora de LA (40 milhas / 65 km de distância do hotel). Formato híbrido coberto e totalmente fechado com ar-condicionado. Ótimo para dias muito quentes ou chuvosos. Possui mais de 200 lojas. Imprima cupons no site antes de ir e leve uma mala de rodinhas.", marcas: "Saks Fifth Avenue OFF 5TH, Nordstrom Rack, Michael Kors, Hollister, Nike, Calvin Klein, Tommy Hilfiger, Last Call (Neiman Marcus), Columbia, Vans." },
-                { dia: "14/08", nome: "Downtown Disney", end: "1580 Disneyland Dr, Anaheim, CA 92802", desc: "Versão californiana do Disney Springs, com excelentes opções de restaurantes e lojinhas bem legais, sem necessidade de ingresso para passear no complexo Disney." },
-                { dia: "15/08", nome: "Emporium (Disneyland Main St)", end: "1313 Disneyland Dr, Anaheim, CA 92802", desc: "Loja icônica e charmosa na Main Street USA da Disneyland, repleta de brinquedos clássicos, souvenirs e vitrines animadas que homenageiam os criadores do parque." },
-                { dia: "18/08", nome: "Las Americas Premium Outlets", end: "4211 Camino De La Plaza, San Diego, CA 92173", desc: "Considerado o melhor local para descontos em San Diego, situado a cerca de 20 minutos de carro do centro (Downtown) perto da fronteira. Possui mais de 125 lojas com marcas consagradas.", marcas: "Nike, Adidas, Calvin Klein, Coach, Guess, Michael Kors." },
-                { dia: "18/08", nome: "Fashion Valley Mall", end: "7007 Friars Rd, San Diego, CA 92108", desc: "O maior shopping de San Diego, localizado na região de Mission Valley. Tem formato aberto (ao ar livre) de altíssimo nível e conta com cerca de 200 lojas de marcas variadas.", marcas: "Nordstrom, Gucci, Apple, Louis Vuitton, Zara, Nike." }
+                { 
+                    dia: "09/08", 
+                    nome: "Third Street Promenade", 
+                    end: "1351 3rd Street Promenade, Santa Monica, CA 90401", 
+                    desc: "Conjunto de três ruas que formam um calçadão exclusivo para pedestres, repleto de lojas, músicos e artistas de rua.",
+                    mapUrl: "https://maps.app.goo.gl/o8jagXTCQsMQYQjC8"
+                },
+                { 
+                    dia: "09/08", 
+                    nome: "Santa Monica Place", 
+                    end: "395 Santa Monica Place, Santa Monica, CA 90401", 
+                    desc: "Um shopping de três andares perto do píer de Santa Mônica, oferecendo excelentes lojas e conveniência integrada.",
+                    mapUrl: "https://maps.app.goo.gl/o8jagXTCQsMQYQjC8"
+                },
+                { 
+                    dia: "09/08", 
+                    nome: "Abbot Kinney Boulevard", 
+                    end: "Abbot Kinney Blvd, Venice, CA 90291", 
+                    desc: "Um shopping a céu aberto. Trecho repleto de lojas, galerias de arte, bares de vinho, cafés orgânicos e restaurantes para um passeio charmoso.",
+                    mapUrl: "https://maps.app.goo.gl/o8jagXTCQsMQYQjC8"
+                },
+                { 
+                    dia: "10/08", 
+                    nome: "The Grove Company", 
+                    end: "189 The Grove Dr, Los Angeles, CA 90036", 
+                    desc: "The Grove (perto de Beverly Hills). Shopping aberto, charmoso, altamente dinâmico e agradável. Excelente alternativa dentro da cidade.",
+                    mapUrl: "https://maps.app.goo.gl/V8kyy2U9YAXNHL836"
+                },
+                { 
+                    dia: "10/08", 
+                    nome: "Rodeo Drive (Beverly Hills)", 
+                    end: "Rodeo Dr, Beverly Hills, CA 90210", 
+                    desc: "Rua de compras de luxo icônica em Beverly Hills com as marcas mais glamourosas do mundo.",
+                    mapUrl: "https://maps.app.goo.gl/V8kyy2U9YAXNHL836"
+                },
+                { 
+                    dia: "12/08", 
+                    nome: "Loja do estúdio Warner Bros.", 
+                    end: "3400 Warner Blvd, Burbank, CA 91505", 
+                    desc: "Loja do estúdio aberta das 8h30 às 19h00 com produtos oficiais das séries, filmes e heróis da marca.",
+                    mapUrl: "https://maps.app.goo.gl/YX5ntf9Bajh8GRp39"
+                },
+                { 
+                    dia: "13/08", 
+                    nome: "Beverly Center (Shopping)", 
+                    end: "8500 Beverly Blvd, Los Angeles, CA 90048", 
+                    desc: "Shopping fechado/climatizado no centro urbano, excelente para compras rápidas e confortáveis dentro da cidade.",
+                    mapUrl: "https://maps.app.goo.gl/BwaQxUNb6baZHkkR6"
+                },
+                { 
+                    dia: "13/08", 
+                    nome: "Camarillo Premium Outlets", 
+                    end: "740 E Ventura Blvd, Camarillo, CA 93010", 
+                    desc: "O mais completo outlet da região. É o maior outlet ao ar livre de Los Angeles, composto por quase 200 lojas.", 
+                    localizacao: "Cidade de Camarillo, a cerca de 50 minutos a noroeste de LA pela rodovia 101.",
+                    marcas: "Armani, J.Crew, Timberland, Calvin Klein, Diesel, Kate Spade, Michael Kors, Polo Ralph Lauren, Tommy Hilfiger, Coach, Tory Burch, Nike.",
+                    dica: "Cadastre-se antes no VIP Shopper Club no site da rede Premium Outlets para receber cupons de descontos extras por e-mail.",
+                    mapUrl: "https://maps.app.goo.gl/aNyb77Ke2o3Yb56s7"
+                },
+                { 
+                    dia: "13/08", 
+                    nome: "Citadel Outlets", 
+                    end: "100 Citadel Dr, Commerce, CA 90040", 
+                    desc: "O mais perto do centro. Localizado a caminho do aeroporto LAX e muito próximo de Downtown LA. Possui mais de 130 marcas renomadas.", 
+                    localizacao: "Em Commerce, a caminho do aeroporto LAX e perto de Downtown LA.",
+                    marcas: "Nike, Coach, Kate Spade, Michael Kors, Levi's, lululemon, The North Face, Tory Burch, Vuori, Adidas, Puma, GAP, Calvin Klein, Guess, Lacoste, Disney Outlet.",
+                    comoChegar: "Ônibus shuttle gratuito (Citadel Express - Linha 600) operado pela City of Commerce Municipal Bus Lines. O ponto mais próximo ao Hotel Indigo fica no cruzamento da Olympic Blvd & Figueroa St (3 quarteirões ou 5-7 min a pé do hotel). Siga a pé saindo do hotel pela Francisco St ao sul, vire à esquerda na W Olympic Blvd até a S Figueroa St. O trajeto dura de 40 a 45 minutos até a parada Telegraph Rd / Citadel Dr. Atenção aos horários: em dias úteis passa a cada 30-60 minutos; nos finais de semana os intervalos são mais longos (1h30 a 2h de espera).",
+                    dica: "Peça o Savings Card ou Savings Passport no Centro de Informações na chegada para obter descontos adicionais.",
+                    mapUrl: "https://maps.app.goo.gl/3cBuvivEkxK6Ppg26"
+                },
+                { 
+                    dia: "13/08", 
+                    nome: "Ontario Mills Outlet", 
+                    end: "1 Mills Cir, Ontario, CA 91764", 
+                    desc: "O maior outlet da Califórnia.", 
+                    localizacao: "Em Ontario, a cerca de 1 hora de LA (40 milhas / 65 km de distância do hotel).",
+                    marcas: "Saks Fifth Avenue OFF 5TH, Nordstrom Rack, Michael Kors, Hollister, Nike, Calvin Klein, Tommy Hilfiger, Last Call (Neiman Marcus), Columbia, Vans.",
+                    comoChegar: "Pegue o trem Metrolink (San Bernardino Line) na Union Station, desça na estação Ontario-East ou Montclair, e finalize o trecho com um Uber curto ou utilizando a linha de ônibus 61.",
+                    dica: "Imprima cupons no site antes de ir, use o formato coberto com ar-condicionado ideal para dias quentes e leve uma mala de rodinhas para carregar as compras confortavelmente.",
+                    mapUrl: "https://maps.app.goo.gl/J7XLaTx8SeLf38zZ7"
+                },
+                { 
+                    dia: "14/08", 
+                    nome: "Downtown Disney", 
+                    end: "1580 Disneyland Dr, Anaheim, CA 92802", 
+                    desc: "Versão californiana do Disney Springs, com excelentes opções de restaurantes e lojinhas temáticas bem legais, sem necessidade de adquirir ingresso para passear pelo complexo.",
+                    mapUrl: ""
+                },
+                { 
+                    dia: "15/08", 
+                    nome: "Emporium (Disneyland Main St)", 
+                    end: "1313 Disneyland Dr, Anaheim, CA 92802", 
+                    desc: "Loja icônica e charmosa na Main Street USA da Disneyland, repleta de brinquedos clássicos, souvenirs e vitrines animadas que homenageiam os criadores do parque.",
+                    mapUrl: ""
+                },
+                { 
+                    dia: "18/08", 
+                    nome: "Las Americas Premium Outlets", 
+                    end: "4211 Camino De La Plaza, San Diego, CA 92173", 
+                    desc: "Considerado o melhor local para compras com descontos em San Diego, situado muito próximo à fronteira mexicana.", 
+                    localizacao: "A cerca de 20 minutos de carro do centro de San Diego (Downtown).",
+                    marcas: "Nike, Adidas, Calvin Klein, Coach, Guess, Michael Kors.",
+                    mapUrl: "https://maps.app.goo.gl/JUdUkRc1RMg2U70E9"
+                },
+                { 
+                    dia: "18/08", 
+                    nome: "Fashion Valley Mall", 
+                    end: "7007 Friars Rd, San Diego, CA 92108", 
+                    desc: "O maior shopping center de San Diego. Tem formato aberto (ao ar livre) com layout de altíssimo nível e conta com mais de 200 lojas de marcas variadas.", 
+                    localizacao: "Localizado na próspera região de Mission Valley.",
+                    marcas: "Nordstrom, Gucci, Apple, Louis Vuitton, Zara, Nike.",
+                    mapUrl: "https://maps.app.goo.gl/iFt4M9kG82VjbM7H9"
+                }
             ]
         };
 
-        // RENDER DE ACORDEÕES DE PASSAGEIROS (EFEITO SANFONA)
         function renderPassengerAccordions() {
             const container = document.getElementById('passenger-accordions-container');
             container.innerHTML = '';
@@ -694,9 +787,8 @@
                             </div>
                         </button>
 
-                        <!-- CONTEÚDO EXPANSIBILIZADO (DADOS DO VOO) -->
+                        <!-- CONTEÚDO EXPANSIBILIZADO -->
                         <div id="passenger-panel-${p.id}" class="${isOpen ? '' : 'hidden'} bg-slate-50/50 p-4 border-t border-slate-100 space-y-4">
-                            <!-- PERFIL / DOCS -->
                             <div class="bg-gradient-to-br from-usnavy to-slate-900 text-white p-4 rounded-xl text-xs space-y-2 shadow-sm border border-white/10">
                                 <p class="font-extrabold tracking-wide flex items-center gap-2 text-amber-400 text-sm"><i class="fa-solid fa-passport text-xs"></i> Dados de Embarque</p>
                                 <p class="text-white/95 font-bold text-sm">${p.nome}</p>
@@ -706,28 +798,23 @@
                             </div>
                 `;
 
-                // TRATAMENTO EXCLUSIVO DO JOSÉ FÁBIO (ID: 0) COM SUB-BOTÕES
                 if (p.id === 0) {
                     accordionHtml += `
-                        <!-- CONTROLES DOS SUB-BOTÕES DO JOSÉ FÁBIO -->
                         <div class="flex gap-2 p-1 bg-slate-200/50 rounded-xl border border-slate-200/30">
                             <button id="jf-sub-domestico" onclick="switchJoseFabioSubTab('domestico')" 
                                     class="flex-1 text-center font-extrabold text-xs py-2.5 rounded-lg transition-all duration-200 active:scale-95 ${joseFabioActiveSubTab === 'domestico' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600'}">
-                                <i class="fa-solid fa-house-laptop mr-1 text-usred"></i> BEL x RJ (Ida/Volta)
+                                <i class="fa-solid fa-house-laptop mr-1 text-usred"></i> BEL x RJ
                             </button>
                             <button id="jf-sub-internacional" onclick="switchJoseFabioSubTab('internacional')" 
                                     class="flex-1 text-center font-extrabold text-xs py-2.5 rounded-lg transition-all duration-200 active:scale-95 ${joseFabioActiveSubTab === 'internacional' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600'}">
                                 <i class="fa-solid fa-earth-americas mr-1 text-usblue"></i> Estados Unidos
                             </button>
                         </div>
-                        
-                        <!-- ÁREA DINÂMICA FILTRADA DO JOSÉ FÁBIO -->
                         <div id="jose-fabio-sub-container" class="space-y-4 pt-1">
                             ${renderSubFlightsList(p)}
                         </div>
                     `;
                 } else {
-                    // OUTROS PASSAGEIROS: RENDERIZAÇÃO DIRETA PADRÃO
                     accordionHtml += `
                         <div class="space-y-4">
                             ${renderFlightsSection("Trechos de Ida", p.voosIda, "bg-usblue", p.id, p.nome)}
@@ -747,11 +834,7 @@
         }
 
         function togglePassengerAccordion(id) {
-            if (expandedPassengerId === id) {
-                expandedPassengerId = null;
-            } else {
-                expandedPassengerId = id;
-            }
+            expandedPassengerId = (expandedPassengerId === id) ? null : id;
             renderPassengerAccordions();
         }
 
@@ -760,7 +843,6 @@
             renderPassengerAccordions();
         }
 
-        // AUXILIAR: Geração dos Trechos sob a Sub-Abra Filtrada do José Fábio
         function renderSubFlightsList(passenger) {
             let idasFiltrado = passenger.voosIda.filter(v => v.categoria === joseFabioActiveSubTab);
             let voltasFiltrado = passenger.voosVolta.filter(v => v.categoria === joseFabioActiveSubTab);
@@ -776,7 +858,6 @@
             return html;
         }
 
-        // AUXILIAR: Renderizador de Seções de Voos Individuais
         function renderFlightsSection(tituloTrecho, voosList, sideColor, pId, pName) {
             let sectionHtml = `
                 <div class="space-y-3">
@@ -784,8 +865,6 @@
             `;
             
             voosList.forEach((v, vIdx) => {
-                // Seleção de URL de check-in dinâmica de acordo com a cia correspondente do trecho
-                const checkInUrl = CHECKIN_URLS[v.cia] || "https://www.latamairlines.com/br/pt/check-in";
                 const trackUrl = v.trackId ? "https://www.flightaware.com/live/flight/" + v.trackId : "#";
                 
                 sectionHtml += `
@@ -804,7 +883,6 @@
                                 <p class="text-[9px] text-slate-400 mt-1 font-medium max-w-[110px] truncate">${v.origCity}</p>
                             </div>
                             <div class="flex flex-col items-center flex-1 mx-2">
-                                <!-- LOCALIZADOR COM FUNÇÃO COPIAR ACOPLADA -->
                                 <div class="flex items-center gap-1.5 bg-white border border-slate-200 px-2 py-1 rounded-lg shadow-3xs">
                                     <span class="text-[9px] font-mono font-extrabold text-slate-700 tracking-wider">${v.loc}</span>
                                     <button onclick="copyToClipboard('${v.loc}', this)" class="text-slate-400 hover:text-usblue transition-colors p-0.5 active:scale-90">
@@ -819,12 +897,16 @@
                             </div>
                         </div>
 
-                        <!-- COMPACTAÇÃO DE AÇÕES DIRETAS (BOTAO CHECK-IN QUE ABRE O CARTAO DE EMBARQUE) -->
-                        <div class="mt-3.5 pt-3.5 border-t border-slate-100">
-                            <button onclick="openBoardingPass('${pName}', '${v.voo}', '${v.orig}', '${v.dest}', '${v.origCity}', '${v.destCity || ''}', '${v.horario}', '${v.loc}', '${v.cia}', '${checkInUrl}', '${trackUrl}')"
-                                    class="w-full flex items-center justify-center gap-2 bg-usblue hover:bg-blue-700 text-white text-xs font-black h-12 rounded-xl text-center tracking-wide active:scale-95 transition-all duration-200 shadow-sm cursor-pointer">
-                                <i class="fa-solid fa-square-check text-sm"></i> Check-in
+                        <!-- Grade de Ação Unificada (Check-in Abre Cartão de Embarque) -->
+                        <div class="grid grid-cols-2 gap-2 mt-3.5 pt-3.5 border-t border-slate-100">
+                            <button onclick="openBoardingPass('${pName}', '${v.voo}', '${v.orig}', '${v.dest}', '${v.origCity}', '${v.destCity || ''}', '${v.horario}', '${v.loc}', '${v.cia}')"
+                                    class="flex items-center justify-center gap-1.5 bg-usblue hover:bg-blue-700 text-white text-[11px] font-extrabold h-11 px-2 rounded-xl text-center tracking-wide active:scale-95 transition-all duration-200 shadow-sm cursor-pointer">
+                                <i class="fa-solid fa-square-check text-[12px]"></i> Check-in
                             </button>
+                            <a href="${trackUrl}" target="_blank" rel="noopener noreferrer" 
+                               class="flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-extrabold h-11 px-2 rounded-xl text-center tracking-wide active:scale-95 transition-all duration-200 shadow-sm">
+                                <i class="fa-solid fa-satellite-dish text-[11px]"></i> Rastrear Voo
+                            </a>
                         </div>
                     </div>
                 `;
@@ -841,7 +923,6 @@
             return sectionHtml;
         }
 
-        // NÃO FAÇA ALTERAÇÕES NO BOTÃO DOS HOTÉIS (Fiel às diretrizes recebidas)
         const hotelList = document.getElementById('hotel-list');
         HOTELS_DATA.forEach(h => {
             hotelList.innerHTML += `
@@ -865,7 +946,6 @@
             `;
         });
 
-        // CONSTRUÇÃO E NAVEGAÇÃO DO CRONOGRAMA DIÁRIO
         function buildItineraryAndAutoOpen() {
             const itineraryList = document.getElementById('itinerary-list');
             itineraryList.innerHTML = '';
@@ -876,7 +956,6 @@
             ITINERARY_DATA.forEach((item, index) => {
                 let pBlocks = '';
                 item.periodos.forEach(p => {
-                    // Aumento significativo de espaçamento vertical (mb-3.5) e altura de linha (leading-relaxed) nos tópicos
                     let itemsList = p.atividades.map(a => `<li class="text-slate-600 text-sm leading-relaxed mb-3.5 py-0.5 flex items-start gap-2"><span>•</span><span>${a}</span></li>`).join('');
                     pBlocks += `
                         <div class="border-l-2 border-usblue/60 pl-3 py-0.5 text-slate-800">
@@ -900,7 +979,6 @@
                     openedAnyDay = true;
                 }
 
-                // Se houver rota/mapa no dia, injeta o botão visualizador
                 let mapsButton = '';
                 if (item.mapsUrl) {
                     mapsButton = `
@@ -916,7 +994,6 @@
                     <div id="card-day-${index}" class="bg-white rounded-2xl border ${highlightBorder} overflow-hidden shadow-3xs transition-all">
                         <button onclick="toggleMobileDay(${index})" class="w-full text-left px-3.5 py-3 flex justify-between items-center bg-white active:bg-slate-50 min-h-[64px]">
                             <div class="flex items-center gap-3 min-w-0">
-                                <!-- DESTAQUE DO DIA COM VERMELHO ESTADOS UNIDOS -->
                                 <div class="bg-gradient-to-br from-usred to-red-700 text-white rounded-xl p-1.5 text-center min-w-[46px] border border-red-500 shadow-sm shrink-0">
                                     <p class="text-sm font-extrabold font-mono leading-none">${item.dia.split('/')[0]}</p>
                                     <p class="text-[8px] font-black uppercase text-red-100 mt-0.5 leading-none tracking-wide">${item.semana}</p>
@@ -943,7 +1020,6 @@
                 `;
             });
 
-            // Fallback de Segurança
             if (!openedAnyDay && ITINERARY_DATA.length > 0) {
                 document.getElementById('mob-content-0').classList.remove('hidden');
                 document.getElementById('chevron-0').classList.add('rotate-180');
@@ -973,13 +1049,11 @@
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.getElementById(`content-${tabId}`).classList.remove('hidden');
             
-            // Remove classes ativas de todos
             document.querySelectorAll('nav button').forEach(btn => {
                 btn.classList.remove('active-nav-standard');
                 btn.classList.remove('active-nav-central');
             });
 
-            // Aplica classe ativa dependendo se é o botão central flutuante ou padrão
             if (tabId === 'roteiro') {
                 document.getElementById('nav-roteiro').classList.add('active-nav-central');
             } else {
@@ -1000,6 +1074,11 @@
                 btnAtracoes.className = "flex-1 text-center font-extrabold text-xs h-12 rounded-xl bg-white text-slate-900 shadow-sm transition-all duration-200";
                 btnCompras.className = "flex-1 text-center font-extrabold text-xs h-12 rounded-xl text-slate-600 transition-all duration-200";
                 PLACES_DATA.atracoes.forEach(p => {
+                    const mapButton = p.mapUrl ? `
+                        <a href="${p.mapUrl}" target="_blank" class="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 text-usblue flex items-center justify-center shrink-0 active:scale-90 shadow-3xs transition-all">
+                            <i class="fa-solid fa-location-arrow text-xs"></i>
+                        </a>` : '';
+
                     container.innerHTML += `
                         <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-3xs flex justify-between items-center gap-3 text-slate-800">
                             <div class="space-y-1 min-w-0">
@@ -1008,32 +1087,69 @@
                                     <h4 class="font-extrabold text-slate-800 text-xs leading-tight truncate">${p.nome}</h4>
                                 </div>
                                 <p class="text-[10px] text-slate-400 font-semibold leading-tight truncate">${p.end}</p>
+                                <p class="text-[11px] text-slate-500 leading-normal font-medium mt-1">${p.desc}</p>
                             </div>
-                            <a href="https://maps.google.com/?q=${encodeURIComponent(p.nome + ' ' + p.end)}" target="_blank" class="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 text-usblue flex items-center justify-center shrink-0 active:scale-90 shadow-3xs transition-transform">
-                                <i class="fa-solid fa-location-arrow text-xs"></i>
-                            </a>
+                            ${mapButton}
                         </div>
                     `;
                 });
             } else {
                 btnCompras.className = "flex-1 text-center font-extrabold text-xs h-12 rounded-xl bg-white text-slate-900 shadow-sm transition-all duration-200";
                 btnAtracoes.className = "flex-1 text-center font-extrabold text-xs h-12 rounded-xl text-slate-600 transition-all duration-200";
+                
                 PLACES_DATA.compras.forEach(p => {
+                    const mapButton = p.mapUrl ? `
+                        <a href="${p.mapUrl}" target="_blank" class="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 text-usblue flex items-center justify-center shrink-0 active:scale-90 shadow-3xs transition-all">
+                            <i class="fa-solid fa-location-arrow text-xs"></i>
+                        </a>` : '';
+
+                    let marcasHtml = p.marcas ? `
+                        <div class="pt-2">
+                            <span class="font-extrabold text-[9px] text-slate-400 uppercase tracking-wider block mb-0.5"><i class="fa-solid fa-tags"></i> Principais Marcas:</span>
+                            <p class="text-[11px] text-slate-600 leading-relaxed font-semibold">${p.marcas}</p>
+                        </div>` : '';
+
+                    let locHtml = p.localizacao ? `
+                        <div class="pt-2">
+                            <span class="font-extrabold text-[9px] text-slate-400 uppercase tracking-wider block mb-0.5"><i class="fa-solid fa-map-pin"></i> Localização:</span>
+                            <p class="text-[11px] text-slate-600 leading-relaxed">${p.localizacao}</p>
+                        </div>` : '';
+
+                    let comoChegarHtml = p.comoChegar ? `
+                        <div class="pt-2">
+                            <span class="font-extrabold text-[9px] text-slate-400 uppercase tracking-wider block mb-0.5"><i class="fa-solid fa-bus"></i> Como Chegar:</span>
+                            <p class="text-[11px] text-slate-600 leading-relaxed">${p.comoChegar}</p>
+                        </div>` : '';
+
+                    let dicaHtml = p.dica ? `
+                        <div class="mt-2 bg-amber-50/50 border border-amber-200/50 p-2.5 rounded-xl">
+                            <span class="font-extrabold text-[9px] text-amber-700 uppercase tracking-wider block mb-0.5"><i class="fa-solid fa-lightbulb"></i> Dica Especial:</span>
+                            <p class="text-[11px] text-amber-800 leading-relaxed font-semibold">${p.dica}</p>
+                        </div>` : '';
+
                     container.innerHTML += `
-                        <div class="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-3xs flex flex-col gap-2 text-slate-800">
-                            <div class="flex justify-between items-center gap-2">
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-3xs flex flex-col gap-2.5 text-slate-800">
+                            <div class="flex justify-between items-start gap-2">
                                 <div class="space-y-0.5 min-w-0">
                                     <div class="flex items-center gap-1.5 flex-wrap">
                                         <span class="text-[9px] font-mono font-black bg-slate-100 text-slate-500 px-1.5 py-0.2 rounded-md">${p.dia}</span>
-                                        <h4 class="font-extrabold text-slate-800 text-xs leading-tight truncate">${p.nome}</h4>
+                                        <h4 class="font-extrabold text-slate-800 text-sm leading-tight truncate">${p.nome}</h4>
                                     </div>
                                     <p class="text-[10px] text-slate-400 font-semibold leading-tight truncate">${p.end}</p>
                                 </div>
-                                <a href="https://maps.google.com/?q=${encodeURIComponent(p.nome + ' ' + p.end)}" target="_blank" class="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 text-usblue flex items-center justify-center shrink-0 active:scale-90 shadow-3xs transition-transform">
-                                    <i class="fa-solid fa-location-arrow text-xs"></i>
-                                </a>
+                                ${mapButton}
                             </div>
-                            <p class="text-[11px] text-slate-600 font-normal leading-relaxed pt-2 border-t border-slate-100"><span class="font-black text-slate-400 text-[8px] uppercase tracking-wider block mb-0.5">Destaques Comerciais:</span>${p.marcas || 'Ponto integrado mencionado no roteiro'}</p>
+                            
+                            <!-- Campo de Descrição Detalhada -->
+                            <div class="pt-2 border-t border-slate-100 text-[11px] leading-relaxed text-slate-500 font-semibold">
+                                <span class="font-extrabold text-[9px] text-slate-400 uppercase tracking-wider block mb-0.5">Descrição:</span>
+                                ${p.desc}
+                            </div>
+
+                            ${locHtml}
+                            ${marcasHtml}
+                            ${comoChegarHtml}
+                            ${dicaHtml}
                         </div>
                     `;
                 });
@@ -1041,23 +1157,17 @@
         }
 
         function copyToClipboard(text, buttonElement) {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text).then(() => {
-                    showCopyFeedback(buttonElement);
-                }).catch(err => console.error('Erro na cópia: ', err));
-            } else {
-                const textArea = document.createElement("textarea");
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.select();
-                try {
-                    document.execCommand('copy');
-                    showCopyFeedback(buttonElement);
-                } catch (err) {
-                    console.error('Fallback falhou: ', err);
-                }
-                document.body.removeChild(textArea);
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showCopyFeedback(buttonElement);
+            } catch (err) {
+                console.error('Falha ao copiar texto: ', err);
             }
+            document.body.removeChild(textArea);
         }
 
         function showCopyFeedback(btn) {
@@ -1073,10 +1183,10 @@
         // CONTROLADOR DO MODAL CARTÃO DE EMBARQUE INTERATIVO (BOARDING PASS)
         let currentModalLocator = '';
 
-        function openBoardingPass(pName, flightNo, orig, dest, origCity, destCity, date, locator, airline, checkinUrl, trackUrl) {
+        function openBoardingPass(pName, flightNo, orig, dest, origCity, destCity, date, locator, airline) {
             currentModalLocator = locator;
+            const checkInUrl = CHECKIN_URLS[airline] || "https://www.latamairlines.com/br/pt/check-in";
             
-            // Popula os dados do modal
             document.getElementById('bp-airline').innerText = airline + " Airlines";
             document.getElementById('bp-orig').innerText = orig;
             document.getElementById('bp-orig-city').innerText = origCity;
@@ -1087,20 +1197,9 @@
             document.getElementById('bp-locator').innerText = locator;
             document.getElementById('bp-date').innerText = date.split('|')[1]?.trim() || date;
 
-            // Insere o link de Check-in oficial correto dentro do Cartão
             const checkinBtn = document.getElementById('bp-checkin-btn');
-            checkinBtn.href = checkinUrl;
+            checkinBtn.href = checkInUrl;
 
-            // Insere o link de Rastreamento de Voo dinamicamente
-            const trackBtn = document.getElementById('bp-track-btn');
-            if (trackUrl && trackUrl !== '#') {
-                trackBtn.href = trackUrl;
-                trackBtn.style.display = 'inline-flex';
-            } else {
-                trackBtn.style.display = 'none';
-            }
-
-            // Altera as cores do header com base na companhia aérea
             const header = document.getElementById('bp-header');
             if (airline === "Azul") {
                 header.className = "bg-[#002060] text-white px-5 py-4 flex items-center justify-between";
@@ -1110,7 +1209,6 @@
                 header.className = "bg-[#1b0088] text-white px-5 py-4 flex items-center justify-between";
             }
 
-            // Exibe o modal
             const modal = document.getElementById('boarding-pass-modal');
             modal.classList.remove('hidden');
         }
@@ -1124,7 +1222,6 @@
             copyToClipboard(currentModalLocator, btn);
         }
 
-        // COUNTDOWN DE VIAGEM
         function updateMiniCountdown() {
             const targetDate = new Date('2026-08-07T17:50:00').getTime();
             const now = new Date().getTime();
@@ -1139,7 +1236,6 @@
             document.getElementById('cd-hours').innerText = hours.toString().padStart(2, '0');
         }
 
-        // DISPAROS INICIAIS
         window.onload = function() {
             renderPassengerAccordions();
             buildItineraryAndAutoOpen();
